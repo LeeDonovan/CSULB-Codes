@@ -8,7 +8,7 @@ while (keep_going == True):
          keep_going = False
 #keep_going = False goes back to while loop making not equal to True stopping loop.
     else:
-        print("Wrong Number")
+        print("Wrong Number!")
 #Goes back to while loop
     
 
