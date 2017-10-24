@@ -16,22 +16,22 @@ def drawLineGraph(t, x, y):
     t.goto(x,y)              
     t.write(" "+str(y))     # write height of point
 
-numpoints = 20              # specify number of points to plot
-maxheight = 100             # maximum height of points
-border = 10                 # space for border
+# numpoints = 20              # specify number of points to plot
+# maxheight = 100             # maximum height of points
+# border = 10                 # space for border
 
-wn = turtle.Screen()
-wn.setworldcoordinates(0-border, 0, 20*numpoints+border, maxheight+border)
-wn.bgcolor("lightgreen")
+# wn = turtle.Screen()
+# wn.setworldcoordinates(0-border, 0, 20*numpoints+border, maxheight+border)
+# wn.bgcolor("lightgreen")
 
-tess = turtle.Turtle()      # create tess and set some attributes
-tess.color("blue")
-tess.pensize(2)
+# tess = turtle.Turtle()      # create tess and set some attributes
+# tess.color("blue")
+# tess.pensize(2)
 
-for i in range(numpoints):
-    h = random.randint(1, maxheight)
-    drawLineGraph(tess, i*20, h)
+# for i in range(numpoints):
+#     h = random.randint(1, maxheight)
+#     drawLineGraph(tess, i*20, h)
 
-wn.exitonclick()
+# wn.exitonclick()
 
 
