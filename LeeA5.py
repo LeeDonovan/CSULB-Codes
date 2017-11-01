@@ -1,6 +1,16 @@
 import random
-from Draw_LineGraph import drawLineGraph
 import turtle
+
+def drawLineGraph(t, x, y):
+    """ Get turtle t to move to coordinate (x, y). """
+    if x == 0:              # for the first point, 
+        t.up()              # pick up turtle pen
+        t.goto(x, y)        # before moving to that point
+        t.write(" "+str(y))
+        t.down()            # keep turtle pen down for all other points
+    t.goto(x,y)              
+    t.write(" "+str(y))     # write height of point
+
 
 def drawCard():
     win = False  
@@ -15,7 +25,7 @@ def drawCard():
 
 
 max_games = int(input("Please enter a number of games you want to play? \n\t"))
-numpoints = max_games              # specify number of points to plot
+numpoints = max_games              # specify number of points to plot from user input
 maxheight = 400           # maximum height of points
 border = 1                # space for border
 wn = turtle.Screen()
@@ -25,6 +35,5 @@ t = turtle.Turtle()
 t.color("red")
 t.pensize(2)
 for i in range(max_games):
-    drawLineGraph(t,(i+1)*20,drawCard())
+    drawLineGraph(t,(i)*20,drawCard())
 wn.exitonclick()
-
