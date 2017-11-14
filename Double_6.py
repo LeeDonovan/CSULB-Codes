@@ -36,7 +36,7 @@ def main():
         count = count + roll()
     average = count/max_games
     print("Average number of rolls to get a double-6 is ", average)
-
+    print (range(max_games))
 # Call the main function
 main()
         

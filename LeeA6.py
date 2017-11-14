@@ -1,6 +1,8 @@
+print (" You need at least 8 characters long \n Must contain one uppercase letter \n Must contain one lower case letter \n Must contain one numeric digit \n No Spaces")
+
 x = True
 while (x == True):
-    p = input("Please type a password \n\t") 
+    p = input("Please type a password a strong password \n\t") 
     digit = 0
     lower = 0
     upper = 0
