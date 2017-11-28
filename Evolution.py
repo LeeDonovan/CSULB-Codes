@@ -2,7 +2,7 @@ import string
 import random
 import time
 
-possibleCharacters = string.ascii_lowercase + string.digits + string.ascii_uppercase + ' .,!?;:'
+possibleCharacters = string.ascii_lowercase + string.digits + string.ascii_uppercase + ' .,!?;:+'
 
 target = input("Enter your target text: ")
 attemptThis = ''.join(random.choice(possibleCharacters) for i in range(len(target)))
