@@ -1,0 +1,6 @@
+5
+1	Smith
+1	Johnson
+2	Leroy
+2	Pratt
+2	Lance
