@@ -1,0 +1,58 @@
+###########################
+#  sleep_in
+###########################
+#code
+def sleep_in(weekday, vacation):
+      if not weekday or vacation:
+    return True
+  else:
+    return False
+
+
+###########################
+#  sum_double
+###########################
+#code
+def sum_double(a, b):
+      sum = a+b
+  if a == b:
+    sum = sum*2
+  return sum
+
+
+###########################
+#  love6
+###########################
+#code
+def love6(a, b):
+      if a == 6 or b == 6 or a + b == 6 or abs(a-b)==6:
+    return True
+  return False
+
+###########################
+#  alarm_clock
+###########################
+#code
+def alarm_clock(day, vacation):
+      weekday = "7:00"
+  weekend = "10:00"
+  if vacation:
+    weekday = "10:00"
+    weekend = "off"
+  if day>0 and day <6:
+    return weekday 
+  else:
+    return weekend 
+
+###########################
+#  no_teen_sum
+###########################
+#code
+def no_teen_sum(a, b, c):
+      return fix_teen(a) + fix_teen(b) + fix_teen(c)
+ 
+def fix_teen(n):
+  if n in [13, 14, 17, 18, 19]:
+    return 0
+  return n
+  
