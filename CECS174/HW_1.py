@@ -8,7 +8,7 @@ while (keep_going):
     print("3. Stopping Distance")
     print("4. Quit")
     user_input = input("Choose a menu to go to: ")
-    if user_input == "": #If user returns a space it will be invalid
+    if user_input == "" or user_input == 0: #If user returns a space it will be invalid
         door_opens = False
         print("\n")
         print("Invalid Value!\n")
