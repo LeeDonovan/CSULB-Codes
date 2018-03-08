@@ -49,25 +49,31 @@ def menu_check_palindrome():
     else:
         print(OG, "is not a palindrome")
 
-def make_palindrome(st, reversal):
+def make_palindrome(st, yes_no_input):
     for j in range(len(st) -1,-1,-1):
-        reversal = st + st[j]
-    return reversal
+        if yes_no_input == True:
+            if j > 0 :
+                st = st + st[j-1]
+        else:
+            st = st + st[j]
+    return st
 
-make_palindrome()
+def get_repeat_last():
+    keep_going = True
+    while keep_going:
+        yes_no_input = input("Enter y or n if you want to add the last letter of your phrase: ")
+        if yes_no_input == "y":
+            return True
+        elif yes_no_input == "n":
+            return False
+        else:
+            print("Invalid Answer")
 
-
-        
-        
-    
-    
-
-
-
-
-
-
-
+def menu_make_palindrome():
+    phrase_that_pays = get_phrase()
+    re_peat_peat = get_repeat_last()   
+    new_and_improved = make_palindrome(phrase_that_pays, re_peat_peat)
+    print("Before: ",phrase_that_pays," After: ",new_and_improved )
 
 
 def main():
@@ -77,10 +83,13 @@ def main():
         menu_choice = get_menu_choice()
         if menu_choice == "1":
             menu_check_palindrome()
-        
-
+        elif menu_choice == "2":
+            menu_make_palindrome()
         elif menu_choice == "3":
             keep_going = False
+
+main()
+
 
         
     
