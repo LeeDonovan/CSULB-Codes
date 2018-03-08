@@ -38,7 +38,6 @@ def is_palindrome(st):
         while st[j].isalpha() == False:
             j -= 1
         if k < j :
-            print (st[k]," ",st[j],"\n")
             if st[k].lower() != st[j].lower():
                 return False
         else:
