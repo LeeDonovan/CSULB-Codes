@@ -29,15 +29,17 @@ def get_phrase():
 
 def is_palindrome(st):
     j = len(st)                     #Checks if the phrase forward and backward are the same letters
+    k = -1
     for i in range(len(st)):
+        k += 1
         j -= 1
-        while st[i].isalpha() == False:
-            i += 1
+        while st[k].isalpha() == False:
+            k += 1
         while st[j].isalpha() == False:
             j -= 1
-        if i < j :
-            print (st[i]," ",st[j],"\n")
-            if st[i].lower() != st[j].lower():
+        if k < j :
+            print (st[k]," ",st[j],"\n")
+            if st[k].lower() != st[j].lower():
                 return False
         else:
             break
