@@ -89,6 +89,7 @@ def main():                            #The main function where all the magic ha
         elif menu_choice == "2":
             menu_make_palindrome()
         elif menu_choice == "3":
+            print("Code Exited...")
             keep_going = False
 
 main()
