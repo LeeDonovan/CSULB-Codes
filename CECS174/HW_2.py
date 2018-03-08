@@ -1,4 +1,4 @@
-def print_menu():
+def print_menu():               #Main Menu Function
     print("Main Menu")
     print("1. Check a palindrome?")
     print("2. Make a palindrome!")
@@ -17,7 +17,7 @@ def get_phrase():
     keep_going = True
     while keep_going:
         english_input = input("Type a Phrase: ")
-        letter = 0                  #if there is at least one letter it will go through the validation
+        letter = 0                  #If there is at least one letter it will go through the validation
         for i in english_input:
             if i.isalpha():
                 letter = 1
@@ -65,8 +65,8 @@ def get_repeat_last():
     while keep_going:
         yes_no_input = input("Enter y or n if you want to add the last letter of your phrase: ")
         if yes_no_input == "y":
-            return True                         #Ask if user wants second to last letter
-        elif yes_no_input == "n":
+            return True                         #Ask if user wants to include last letter
+        elif yes_no_input == "n":               #If not then will start second to last 
             return False
         else:
             print("Invalid Answer")
