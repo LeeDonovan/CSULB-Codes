@@ -47,7 +47,7 @@ def is_palindrome(st):
 def menu_check_palindrome():
     OG = get_phrase()           #Makes the get_phrase() as a variable so it doesn't repeat the same steps
     if  is_palindrome(OG):
-        print(OG, "is a palindrome")
+        print('"',OG,'"',"is a palindrome")
     else:
         print(OG, "is not a palindrome")
 
