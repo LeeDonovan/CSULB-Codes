@@ -58,7 +58,7 @@ main()
 x = 12
 y = 12
 z = (0,11)
-if (x // 3) or x >= y or x == range(z):
+if (x // 3) == 0 or x >= y or x == range(z):
     print ("True")
 else: 
     print("False")
