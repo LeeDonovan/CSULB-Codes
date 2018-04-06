@@ -1,4 +1,4 @@
-from musicbox import *
+import musicbox
 
 my_music = musicbox.MusicBox()
 note_letters = ['C', 'D', 'E', 'F', 'G', 'A','B']
@@ -21,26 +21,26 @@ def note_to_int(note):
             
 def get_notes():
     note = []
-    keep_going = True
-    while keep_going:
-        user_sequence = input('Input a sequence of notes: ')
-        if user_sequence == '':
-            print("I don't know any of these notes.")
-        else:
-            sequencer = user_sequence.split()
-            for i in sequencer:
-                error = note_to_int(i)
-                if error != -1:
-                    note.append(note_to_int(i))
-            return note
+    user_sequence = input('Input a sequence of notes: ')
+    sequencer = user_sequence.split()
+    for i in sequencer:
+        error = note_to_int(i)
+        if error != -1:
+            note.append(note_to_int(i))
+    return note
 
 def play_notes(notes):
     for i in notes:
-        play_note(i, 500)
+        my_music.play_note(i, 500)
 
 
 def menu_play_notes():
-    return (get_notes())
+    new_notes = get_notes()
+    if not new_notes:
+        print("I don't know any of these notes.")
+    else:
+        play_notes(new_notes)
+
     
 
 def note_to_scale(note, type):
@@ -59,11 +59,28 @@ def note_to_scale(note, type):
 def get_scale():
     choose_one = True
     while choose_one:
-        user_input = input("Do you want a major or a minor? ")
-        if user_input == "major" or user_input == "minor":
+        user_input = input("Enter a note then a scale with a space. '(ie. C# major)': ")
+        splitpusher = user_input.split()
+        if len(splitpusher) == 2:
+            if note_to_int(splitpusher[0]) < 0:
+                print ("Invalid Note!")
+                continue
+            if splitpusher[1] != "major" or splitpusher[1] != "minor":
+                print("Invalid Scale!")
+                continue
             return user_input
-#def play_scale(scale):
-    
+        else:
+            print("Invalid Format!\n")
+
+def play_scale(scale):
+    for i in scale:
+        my_music.play_note(i,500)
+
+def menu_play_scale():
+    big_scale = get_scale()
+    big_scale = big_scale.split()
+    scale_interger = note_to_scale(note_to_int(big_scale[0]),big_scale[1])
+    my_music.play_scale(scale_interger)
 
         
 
@@ -89,9 +106,9 @@ def main():
         print_menu()
         menu_choice = get_menu_choice()
         if menu_choice == '1':
-            play_notes(menu_play_notes())
-        #if menu_choice == '2':
-            
+            menu_play_notes()
+        if menu_choice == '2':
+            menu_play_scale()
         if menu_choice == '3':
             print("Goodbye....")
             keep_going = False
