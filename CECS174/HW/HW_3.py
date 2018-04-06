@@ -11,13 +11,13 @@ def note_to_int(note):
     for i in range(len(note_letters)): # Goes through the list for note_letters to check if string user inputted has one of those letters.
         if note[0] == note_letters[i]:
             if len(note) > 1:
-                if (note[1] == '#' and note[0] != 'E' and note[0] != 'B'): # It needs a '#' and can not have an E or B b/c they don't exist 
+                if (note[1] == '#' and note[0] != 'E' and note[0] != 'B'): # It needs a '#' and can not have an E or B b/c they don't exist
                     return note_numbers[i] + 1 #If a valid note then will pass and add one to the number
-                if (note[1] == 'b' and note[0] != 'C' and note[0] != 'F'): # needs a 'b' and can not have a a C and F b/c they don't exist 
+                if (note[1] == 'b' and note[0] != 'C' and note[0] != 'F'): # needs a 'b' and can not have a a C and F b/c they don't exist
                     return note_numbers[i] - 1#If valid then will pass and subtract one to the number
                 return -1
             return note_numbers[i]
-    return -1 # if the note the user inputted does not exist then it will return a -1 
+    return -1 # if the note the user inputted does not exist then it will return a -1
 
 def get_notes():
     note = [] #Empty list for user inputs
@@ -44,15 +44,15 @@ def menu_play_notes():
 
 
 def note_to_scale(note, type):
-    scalar = [] #New list to be appened 
+    scalar = [] #New list to be appened
     scalar.append(note)
     if type == "major": #Checks for a major when split
         for i in major_scale_intervals:
-            note += i #Tells how to increment
+            note -= i #Tells how to increment
             scalar.append(note)
     if type == "minor": # checks for a minor when split
         for j in minor_scale_intervals:
-            note -= j# Tells how to increment
+            note += j# Tells how to increment
             scalar.append(note)
     return scalar
 
@@ -61,7 +61,7 @@ def get_scale():
     choose_one = True
     while choose_one:
         user_input = input("Enter a note then a scale with a space. '(ie. C# major)': ")
-        splitpusher = user_input.split() 
+        splitpusher = user_input.split()
         if len(splitpusher) == 2: #Checks if when split len is 2 for a note and a type.
             if note_to_int(splitpusher[0]) < 0:
                 print("Invalid Note!")
@@ -80,8 +80,8 @@ def play_scale(scale):
 
 
 def menu_play_scale():
-    big_scale = get_scale()# Set as a variable to be used later
-    big_scale = big_scale.split()#Splits the user input 
+    big_scale = get_scale()#Set as a variable to be used later
+    big_scale = big_scale.split()#Splits the user input
     scale_interger = note_to_scale(note_to_int(big_scale[0]), big_scale[1])#Takes in two parameters from functions and the variable
     play_scale(scale_interger)#Uses the variable above to play
 
@@ -119,12 +119,5 @@ def main():
 
 main()
 my_music.close() #Closes music box when done with main
-
-
-
-
-
-
-
 
 
