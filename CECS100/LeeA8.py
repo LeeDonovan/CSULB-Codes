@@ -1,6 +1,6 @@
 import turtle
 import random
-candFile = open("Candidates.txt", 'r')
+candFile = open("C:\\Users\\Donovan\\Desktop\\GitHub\\EXCEL-Mentee-Repository\\CECS100\\Candidates.txt", 'r')
 numCandidates = int(candFile.readline()) #get number of candidates
 print("Number of candidates = ", numCandidates)
 
@@ -21,7 +21,7 @@ print(candidates[1])
 
 D1 = -1
 
-ThePeople = open("Ballots.txt", 'r')  # read ballot
+ThePeople = open("C:\\Users\\Donovan\\Desktop\\GitHub\\EXCEL-Mentee-Repository\\CECS100\\Ballots.txt", 'r')  # read ballot
 PeopleText = ThePeople.read()
 for i in candidates:                  
     D1 += 1
