@@ -26,7 +26,7 @@ PeopleText = ThePeople.read()
 for i in candidates:                  
     D1 += 1
     D2 = -1
-    Sum_of_a_District = 0           # 
+    Sum_of_a_District = 0           
     for j in i: 
         D2 += 1
         votes[D1][D2] = PeopleText.count(j)               # go through candidate list and count how many times a candidates name appears and add it into votes list
