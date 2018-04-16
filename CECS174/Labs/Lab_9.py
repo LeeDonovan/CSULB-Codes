@@ -15,6 +15,7 @@ def main():
                     break
                 if user_input :
                     print(user_input, "did not compete.")
+                    break
 
 
             
