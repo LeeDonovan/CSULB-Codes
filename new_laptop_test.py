@@ -1,1 +1,0 @@
-print("Set up VScode integrated with github by myself wowza!")
