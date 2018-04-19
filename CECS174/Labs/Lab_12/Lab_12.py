@@ -27,7 +27,7 @@ def main():
             keep_going = False
         else:
             for i in all_countries:
-                (country, captial) = i
+                (country, capital) = i
                 if country == country_name:
                     print_country(i)
 def print_country(country):
