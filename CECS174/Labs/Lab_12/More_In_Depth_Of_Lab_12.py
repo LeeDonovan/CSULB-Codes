@@ -8,9 +8,9 @@ def read_countries(file_name):
             first_line = False
             continue
         
-        # read: Name=0, Team=1, AB=3, HR=9
+        # read: CountryName=0, Capital=1, Latitude=2, Longitude=3, Code=4, Continent=5
         split_line = line.split(",")
-        # strip('"')
+
         
         country = (split_line[0].strip(), split_line[1].strip(), split_line[2].strip()\
         , split_line[3].strip(), split_line[4].strip(), split_line[5].strip())
