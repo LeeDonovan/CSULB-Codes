@@ -26,10 +26,7 @@ def main():
         if country_name =="quit":
             keep_going = False
         else:
-            for i in all_countries:
-                (country, capital) = i
-                if country == country_name:
-                    print_country(i)
+            print(all_countries[0][0])
 def print_country(country):
     (country, capital) = country
     print("The capital of {0} is {1}.".format(country, capital))
