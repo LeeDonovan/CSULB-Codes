@@ -1,6 +1,6 @@
 import random
 
-number = random.randint(1,10)
+number = random.randint(1,100)
 tries = 1
 
 uname = input("Hello what is your user name?\n")
@@ -9,7 +9,7 @@ question = input("Would you like to play a game? [Y?N]: ")
 if question == 'N':
     print("Oh...okay then")
 if question == 'Y':
-    print("I'm thinking of a number between 1 & 10.")
+    print("I'm thinking of a number between 1 & 100.")
     guess = int(input("Take a stab at it: "))
     if guess > number:
         print("Guess a bit lower than that :o")
