@@ -40,7 +40,7 @@ public class Lab_15 {
 	    	  System.out.printf("Your shot went %.2fm short of the target",(distance-final_distance) );
 
 		  }
-	      else//hits the target
+	      else//if final distance doesn't correlate with the other if statements then will go through as a hit
 	      {
     	  	loop = false;
     	  	System.out.println("\nYou hit it the target!");
