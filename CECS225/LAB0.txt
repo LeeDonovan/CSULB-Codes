@@ -1,0 +1,37 @@
+module adderTester;
+  reg [3:0] a, b;
+  wire [5:0] sum;//number cap changed from 3 to 5
+  
+  adder4bit a4(a, b, sum);
+  
+  initial begin
+    $display("Testing 4-bit adder");
+    
+    $display("Test case 1");
+    a = 4'b0011;//3
+    b = 4'b0010;//2
+    #1;
+    $display("\tA = %b\tB = %b\tSUM = %b",a,b,sum);
+    $display("Test case 2");
+    a = 4'b0100;//Decimal number is 4
+    b = 4'b0110;//Decimal number is 5
+    #2;
+	$display("\tA = %b\tB = %b\tSUM = %b",a,b,sum);
+    $display("Test case 3");
+    a = 4'b1000;//Decimal number is 8
+    b = 4'b0101;//Decimal number is 5
+    #3;
+    $display("\tA = %b\tB = %b\tSUM = %b",a,b,sum);
+    $display("Test case 4");
+    a = 4'b0011;//Decimal number is 3
+    b = 4'b1100;//Decimal number is 12
+    #4;
+	$display("\tA = %b\tB = %b\tSUM = %b",a,b,sum);
+    $display("Test case 5");
+    a = 4'b0111;//Decimal number is 7
+    b = 4'b1011;//Decimal number is 11
+    #5;
+	$display("\tA = %b\tB = %b\tSUM = %b",a,b,sum);
+    $finish;
+  end
+endmodule

@@ -1,2 +1,10 @@
-x = 2+3//2*4-16%3
-print(x)
+ppl = 5
+cost = 19.99
+tax = .08
+total = ppl * cost
+z= total*tax
+print(z)
+grat = .15 
+y = z * grat
+op = z + y
+print(total+op)
