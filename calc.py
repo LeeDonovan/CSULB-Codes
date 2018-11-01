@@ -1,10 +1,13 @@
-m = 0.9
-rod_length = .4
-radius = .2
-w = 83
-speed_of_ball1 = radius*w
-angular_momentum = m*speed_of_ball1*radius
-KE = .5*m*(speed_of_ball1**2)
-KE1 = .5*((m*(radius**2))+m*(radius**2))*(w**2)
+import random
+bww = 0
+sake= 0
+for i in range(69):
+    food = random.choice(["Sake2Me","BWW"])
+    if food == "BWW":
+        bww = bww + 1
+    else:
+        sake = sake + 1
 
-print(KE1)
+print("BWW: ", bww)
+print("Sake2Me: ", sake)
+

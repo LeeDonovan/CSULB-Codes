@@ -1,10 +1,6 @@
-ppl = 5
-cost = 19.99
-tax = .08
-total = ppl * cost
-z= total*tax
-print(z)
-grat = .15 
-y = z * grat
-op = z + y
-print(total+op)
+x= 23*23
+y = 21*21*21*21*21
+z = 17*17
+a = 23
+
+print(z*a)
