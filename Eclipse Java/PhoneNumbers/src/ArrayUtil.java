@@ -15,6 +15,7 @@ public class ArrayUtil
          a[i] = (int) (Math.random() * n);
       }
       
+      
       return a;
    }
 
