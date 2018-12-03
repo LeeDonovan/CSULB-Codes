@@ -13,5 +13,6 @@
     "python.unitTest.pyTestArgs": [
         "CreateGames"
     ],
-    "python.unitTest.promptToConfigure": false
+    "python.unitTest.promptToConfigure": false,
+    "python.linting.pylintEnabled": true
 }

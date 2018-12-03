@@ -22,7 +22,7 @@ public class LinkedListQueue {
 		return ListQueue.removeFirst();
 		
 	}
-	public void printQ(){
+	public void printQ(){//toString() function
 		Person inQ;
 		for(int i = 0; i < ListQueue.size();i++){
 			inQ = ListQueue.get(i);

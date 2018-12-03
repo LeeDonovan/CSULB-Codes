@@ -11,12 +11,6 @@ public class QueueRunner {
 
 		LinkedListQueue iPhone = new LinkedListQueue();
 		Person temp;
-		Scanner in = new Scanner(System.in);
-		System.out.println("Please enter your first name: ");
-		String first = in.nextLine();
-		System.out.println("Please enter your last name: ");
-		String last = in.nextLine();
-		iPhone.add2Queue(new Person(first,last));
 		System.out.println("Fill up the queue with people ahead of me.");
 		iPhone.add2Queue(new Person("Britney", "Spears"));
 		iPhone.add2Queue(new Person("Chevvy", "Chase"));
