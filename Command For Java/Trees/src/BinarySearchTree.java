@@ -198,7 +198,7 @@ public class BinarySearchTree
       public void addNode(Node newNode)
       {  
          int comp = newNode.data.compareTo(data);
-         if (comp < 0)
+         if (comp <= 0)
          {  
             if (left == null) { left = newNode; }
             else { left.addNode(newNode); }
