@@ -15,18 +15,47 @@ public class BinarySearchTree
       root = null;
    }
    
+   // Function to find the max of the tree based on Alphabetical Order by Lastname then First
+   public Author findMax()
+   {
+      Node temp = root;
+      // Checking temp.right in case we run into null
+      while(temp.right != null)
+      {
+         temp = temp.right;
+      }
+      
+      return temp.data;
+   }
+
+   public Author findMin()
+   {
+      Node temp = root;
+      while(temp.left != null)
+      {
+         temp = temp.left;
+      }
+      
+      return temp.data;
+   }
    /**
       Inserts a new node into the tree.
       @param obj the object to insert
    */
-   public void add(Comparable obj) 
+   public void add(Author obj) 
    {  
       Node newNode = new Node();
       newNode.data = obj;
       newNode.left = null;
       newNode.right = null;
-      if (root == null) { root = newNode; }
-      else { root.addNode(newNode); }
+      if (root == null) 
+      { 
+         root = newNode; 
+      }
+      else 
+      { 
+         root.addNode(newNode); 
+      }
    }
 
    /**
@@ -34,7 +63,7 @@ public class BinarySearchTree
       @param obj the object to find
       @return true if the object is contained in the tree
    */
-   public boolean find(Comparable obj)
+   public boolean find(Author obj)
    {
       Node current = root;
       while (current != null)
@@ -52,7 +81,7 @@ public class BinarySearchTree
       if the object is not contained in the tree.
       @param obj the object to remove
    */
-   public void remove(Comparable obj)
+   public void remove(Author obj)
    {
       // Find node to be removed
 
@@ -158,7 +187,7 @@ public class BinarySearchTree
    */
    class Node
    {  
-      public Comparable data;
+      public Author data;
       public Node left;
       public Node right;
 
