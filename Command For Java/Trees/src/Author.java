@@ -36,14 +36,14 @@ class Author implements Comparable<Author>{
 	}
 
 	public String toString() {
-		return "The author's name is: " + firstName + " " + lastName;
+		return firstName + " " + lastName;
 	}
 
 	public static void main (String [] args) {
 		Author auth1 = new Author("Wells","Herbert");
 		Author auth2 = new Author("Verne","Jules");
 		Author auth3 = new Author("Verne","Jules");
-		Author auth4 = new Author("Zung", "Aingty");
+		Author auth4 = new Author("Riodarn", "Rick");
 		BinarySearchTree tree = new BinarySearchTree();
 		tree.add(auth1);
 		tree.add(auth2);
@@ -61,6 +61,8 @@ class Author implements Comparable<Author>{
 		// System.out.println(auth1);
 		System.out.println("Max is " + tree.findMax());
 		System.out.println("Min is "+ tree.findMin());
+		System.out.println("\nWhole Tree: ");
+		tree.print();
 						
 	}
 }

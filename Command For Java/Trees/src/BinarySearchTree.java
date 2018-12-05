@@ -177,7 +177,7 @@ public class BinarySearchTree
    {  
       if (parent == null) { return; }
       print(parent.left);
-      System.out.print(parent.data + " ");
+      System.out.print(parent.data + "\n");
       print(parent.right);
    }
 
