@@ -50,16 +50,17 @@ class Author implements Comparable<Author>{
 		tree.add(auth3);
 		tree.add(auth4);
 						
-		// System.out.println("compareTo(1 to 2): " + auth1.compareTo(auth2));
-		// System.out.println("compareTo(2 to 1): " + auth2.compareTo(auth1));
-		// System.out.println("equals(1 to 2): " + auth1.equals(auth2));
-		// System.out.println("compareTo(2 to 3): " + auth1.compareTo(auth2));
-		// System.out.println("equals(2 to 3): " + auth2.equals(auth3));
-		// System.out.println("hashCode(1): " + auth1.hashCode());
-		// System.out.println("hashCode(2): " + auth2.hashCode());
-		// System.out.println("hashCode(3): " + auth3.hashCode());
-		// System.out.println(auth1);
-		System.out.println("Max is " + tree.findMax());
+		System.out.println("compareTo(1 to 2): " + auth1.compareTo(auth2));
+		System.out.println("compareTo(2 to 1): " + auth2.compareTo(auth1));
+		System.out.println("equals(1 to 2): " + auth1.equals(auth2));
+		System.out.println("compareTo(2 to 3): " + auth1.compareTo(auth2));
+		System.out.println("equals(2 to 3): " + auth2.equals(auth3));
+		System.out.println("hashCode(1): " + auth1.hashCode());
+		System.out.println("hashCode(2): " + auth2.hashCode());
+		System.out.println("hashCode(3): " + auth3.hashCode());
+		System.out.println("hashCode(4): " + auth4.hashCode());
+		System.out.println(auth1);
+		System.out.println("\nMax is " + tree.findMax());
 		System.out.println("Min is "+ tree.findMin());
 		System.out.println("\nWhole Tree: ");
 		tree.print();
