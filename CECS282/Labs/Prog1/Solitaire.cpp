@@ -4,7 +4,7 @@
   January 29, 2019
 */
 
-#include Card.h
+#include "Card.h"
 #include <iostream>
 using namespace std;
 int main()
@@ -17,7 +17,7 @@ int main()
     cout <<"5. Exit";
     cin >> menuNum;
 
-    rand Card c1; 
+    Card c1; 
     c1.showCard();
     return 0;
 }

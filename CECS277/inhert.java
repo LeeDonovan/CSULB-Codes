@@ -26,5 +26,7 @@ public class inhert{
         P p1 = new C();
         p1.m1();
         //p1.m2(); this does not work
+
+        // C c1 = new P(); cant create parent out of child 
     }
 }

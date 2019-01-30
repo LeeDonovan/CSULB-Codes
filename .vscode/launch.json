@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - inhert",
+            "request": "launch",
+            "mainClass": "inhert"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Recursion",
             "request": "launch",
             "cwd": "${workspaceFolder}",
