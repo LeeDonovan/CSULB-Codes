@@ -14,5 +14,9 @@
         "CreateGames"
     ],
     "python.unitTest.promptToConfigure": false,
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
