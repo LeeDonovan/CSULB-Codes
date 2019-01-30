@@ -1,9 +1,8 @@
-
-#include "Card.h"
+#include Card.h
 #include <iostream>
 using namespace std;
 
-Card::Card()
+void Card::Card()
 {
     rank = 'Z';
     suit = 'Z';
