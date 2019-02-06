@@ -1,13 +1,24 @@
-/*Donovan Lee
-  CECS 282-05
-  Program 1 - Cards
-  January 29, 2019
-*/
-#include "Card.h"
+
+#include <time.h>
+#include <cstdlib.h>
 #include <iostream>
+
+int sum(int,int);
 
 int main()
 {
-    Card c1; 
-    c1.display();
+    int x = 3;
+    int y = 7;
+    int z = sum(x,y);
+    std::cout<<z;
+    return 0;
 }
+
+int sum(int a, int b)
+{
+  return a+b;
+}
+
+srand(time())
+
+

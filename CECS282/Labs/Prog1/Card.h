@@ -1,4 +1,5 @@
-
+#ifndef CARD_H
+#define CARD_H
 
 class Card
 {
@@ -14,3 +15,5 @@ class Card
         void showCard();
         void flipCard();   
 };
+
+#endif

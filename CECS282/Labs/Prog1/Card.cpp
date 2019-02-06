@@ -1,15 +1,31 @@
-#include Card.h
+#include "Card.h"
 #include <iostream>
+
+
 using namespace std;
 
-void Card::Card()
+Card::Card()
 {
     rank = 'Z';
     suit = 'Z';
-    faceUp = false;
+    bool faceUp = false;
+};
+
+void Card::setCard(char r, char s)
+{
+    rank = r;
+    suit = s;
+};
+
+Card::Card(char r, char s)
+{
+    rank = r;
+    suit = s;
 }
 
-int Card::value()
+
+
+int Card::getValue()
 {
     if (rank == 'A')return 1;
     if (rank == '2')return 2;
@@ -20,15 +36,22 @@ int Card::value()
     if (rank == '7')return 7;
     if (rank == '8')return 8;
     if (rank == '9')return 9;
-    if (rank == '10')return 10;
-    if (rank == 'J')return 11;
-    if (rank == 'Q')return 12;
-    if (rank == 'K')return 13;
-
-}
+    if (rank == 'T')return 10;
+    if (rank == 'J')return 10;
+    if (rank == 'Q')return 10;
+    if (rank == 'K')return 10;
+    else
+    {
+        cout << "Invalid rank";
+    }
+    
+    return 0;
+};
 
 void Card::showCard()
 {
-    cout << "Rank: " <<rank;
-}
+    cout <<rank <<suit;
+};
+
+
 
