@@ -23,6 +23,8 @@ int main()
     Card c3('2','S');
     c1.showCard();
     c3.showCard();
-
+    Deck d1;
+    d1.showDeck();
+    
     return 0;
 }

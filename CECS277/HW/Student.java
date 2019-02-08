@@ -4,10 +4,12 @@ public class Student{
     int idNum;
     int credHrs;
     int numPts;
+    int lastStudentID;
 
-    public Student(int snum, int creditHrs, int numbPts)
+    public Student(int snum, int creditHrs, int numbPts, int lsID)
     {
-        idNum = snum;
+        lastStudentID = lsID;
+        idNum = lastStudentID;
         credHrs = creditHrs;
         numPts = numbPts;
     }
@@ -15,31 +17,35 @@ public class Student{
         this.idNum = snum;
         return idNum;
     }
+    public int getID()
+    {
+        return idNum;
+    }
     public int setHrs(int creditHrs){
         this.credHrs = creditHrs;
+        return credHrs;
+    }
+    public int getHrs()
+    {
         return credHrs;
     }
     public int setPts(int numbPts){
         this.numPts = numbPts;
         return numPts;
     }
-    public double getGPA(){
-        double gpa = (numPts/credHrs);
-        System.out.printf("%.2f", gpa);
+    public int getPts()
+    {
+        return numPts;
+    }
+    public float getGPA(){
+        float gpa = (numPts/credHrs);
         return gpa;
     }
-    public static String lastStudentID(String text) {
-		String firstChar = text.substring(0,1);
-		String notFirstChar = text.substring(1, text.length());
-		String n = "", finish = "";
-		if (text.length() > 1){
-			n = lastStudentID(notFirstChar);
-			finish = n + firstChar;
-		}
-		else {
-			finish += text;
-		}
-		return finish;
-	}
+    public int getLastStudent()
+    {
+        lastStudentID = lastStudentID + 1;
+        return lastStudentID;
+    }
+    
    
 }

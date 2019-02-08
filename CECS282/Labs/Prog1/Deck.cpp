@@ -2,16 +2,31 @@
 #include "Card.h"
 #include <cstdlib>
 #include <time.h>
+#include <iostream>
+
 
 Deck::Deck()
 {
-    Card x;
-    char deck[52];
+
+    deckofCards[0].setCard('A','S');
+    
+
+    
+    
+    
+};
+
+void Deck::showDeck()
+{
+    using namespace std;
     for (int i = 0; i < 52; i++)
     {
-        deck[i] = x;
+        deckofCards[i].showCard();
+        cout << "\n";
     }
-};
+
+    
+}
 
 // void Deck::shuffle()
 // {
