@@ -28,7 +28,7 @@ public class CarRental{
                 System.out.println("How many days would you like to rent the car: ");
                 int day = scan.nextInt();
                 int total = day*eco2;
-                System.out.println("Your total will be " + total); 
+                System.out.println("Your total will be $" + total); 
             }
             else 
             {
@@ -39,7 +39,7 @@ public class CarRental{
                 System.out.println("How many days would you like to rent the car: ");
                 int day1 = scan.nextInt();
                 int total1 = day1*ecoP;
-                System.out.println("Your total will be " + total1); 
+                System.out.println("Your total will be $" + total1); 
             }
             
 
@@ -58,7 +58,7 @@ public class CarRental{
                 System.out.println("How many days would you like to rent the car: ");
                 int day3 = scan.nextInt();
                 int total3 = day3*med2;
-                System.out.println("Your total will be " + total3); 
+                System.out.println("Your total will be $" + total3); 
             }
             else 
             {
@@ -69,7 +69,7 @@ public class CarRental{
                 System.out.println("How many days would you like to rent the car: ");
                 int day4 = scan.nextInt();
                 int total4 = day4*medP;
-                System.out.println("Your total will be " + total4); 
+                System.out.println("Your total will be $" + total4); 
             }
         }
 
@@ -86,7 +86,7 @@ public class CarRental{
                 System.out.println("How many days would you like to rent the car: ");
                 int dayz = scan.nextInt();
                 int totalz = dayz*full2;
-                System.out.println("Your total will be " + totalz); 
+                System.out.println("Your total will be $" + totalz); 
             }
             else 
             {
@@ -97,7 +97,7 @@ public class CarRental{
                 System.out.println("How many days would you like to rent the car: ");
                 int dayly = scan.nextInt();
                 int totally = dayly*fullP;
-                System.out.println("Your total will be " + totally); 
+                System.out.println("Your total will be $" + totally); 
             }
         }
         
