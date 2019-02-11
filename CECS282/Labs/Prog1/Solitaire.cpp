@@ -8,23 +8,105 @@
 #include "Deck.h"
 #include <iostream>
 using namespace std;
+
+bool isPrime(int x)
+{
+  if (x == 0)
+  {
+    return false;
+  }
+  for (int i = 2; i <= x/2; i++)
+  {
+    if (x%i == 0)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+
 int main()
 {
+    int prime = 0;
     bool loop = true;
-    int menuNum;
-    cout <<"1. New Deck\n";
-    cout <<"2. Display Deck\n";
-    cout <<"3. Shuffle Deck\n";
-    cout <<"4. Play Solitaire Prime\n";
-    cout <<"5. Exit\n";
-    cin >> menuNum;
-    Card c1; 
-    c1.setCard('A','H');
-    Card c3('2','S');
-    c1.showCard();
-    c3.showCard();
     Deck d1;
-    d1.showDeck();
+    int menuNum;
+    Card hand[52];
+    while(loop)
+    {
+      cout <<"\n1. New Deck\n";
+      cout <<"2. Display Deck\n";
+      cout <<"3. Shuffle Deck\n";
+      cout <<"4. Play Solitaire Prime\n";
+      cout <<"5. Exit\n";
+      cin >> menuNum;
+      if (menuNum == 1) 
+      {
+        cout << "New deck has been created." << endl;
+        d1 = Deck();
+      }
+
+      if (menuNum == 2)
+      {
+        d1.showDeck();
+      }
+      if (menuNum == 3)
+      {
+        cout << "Shuffling Deck In Progress..."<< endl;
+        d1.shuffle();
+      }
+      if (menuNum == 4)
+      {
+        int index = 0;
+        int pile = 0;
+        while (d1.cardsLeft() > 0)
+        {
+          if (!isPrime(prime))
+          {
+            hand[index] = d1.deal();
+            prime = prime + hand[index].getValue();
+            index++;
+          }
+          else
+          {
+            for (int i = 0; i < index; i++)
+            {
+              hand[i].showCard();
+              cout << ", ";
+            }
+            cout << "Prime: "<< prime << endl;
+            pile++;
+            index = 0;
+            prime = 0;
+          }
+        }
+        if (isPrime(prime))
+        {
+          cout << "Winner in " << pile << " piles!"<< endl;
+        }
+        else
+        {
+          for (int i = 0; i < index; i++)
+          {
+            hand[i].showCard();
+            cout << ", ";
+          }
+          cout << "Loser" << endl;
+        }
+      }
+
+
+      if (menuNum == 5)
+      {
+        cout << "Goodbye.." << endl;
+        loop = false;
+      }
+
+      
+
+
+    }
     
     return 0;
 }
