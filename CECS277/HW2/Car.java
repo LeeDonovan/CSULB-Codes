@@ -40,6 +40,24 @@ class Car{
     {
         return size;
     }
+
+    public String typeCar(int x)
+    {
+        if (x == 1)
+        {
+            return "Economy";
+        }
+        if (x == 2)
+        {
+            return "Medium";
+        }
+        if (x == 3)
+        {
+            return "Full-Size";
+        }
+        return null;
+    }
 }
+
 
 

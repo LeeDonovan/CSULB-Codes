@@ -1,7 +1,7 @@
 /*Donovan Lee
   CECS 282-05
   Program 1 - Solitaire Prime
-  January 29, 2019
+  Feburary 12, 2019
 */
 
 #include "Card.h"
@@ -96,16 +96,11 @@ int main()
         }
       }
 
-
       if (menuNum == 5)
       {
         cout << "Goodbye.." << endl;
         loop = false;
       }
-
-      
-
-
     }
     
     return 0;
