@@ -9,6 +9,11 @@
 #include <iostream>
 using namespace std;
 
+bool isPrime(int x); 
+
+
+int getInt();
+
 bool isPrime(int x)
 {
   if (x == 0)
@@ -40,7 +45,7 @@ int main()
       cout <<"3. Shuffle Deck\n";
       cout <<"4. Play Solitaire Prime\n";
       cout <<"5. Exit\n";
-      cin >> menuNum;
+      menuNum = getInt();
       if (menuNum == 1) 
       {
         cout << "New deck has been created." << endl;
@@ -101,7 +106,38 @@ int main()
         cout << "Goodbye.." << endl;
         loop = false;
       }
+      
     }
     
     return 0;
+}
+
+int getInt()
+{
+  int integer = 0;
+  bool valid = false;
+  while (!valid)
+  {
+    if (cin >> integer)
+    {
+      if (integer >= 1 && integer <= 5)
+        {
+        valid = true;
+        }
+      else
+      {
+        cout<< "Invalid. Enter a new number from 1 to 5: ";
+      }
+      
+    }
+    else
+    {
+      cin.clear();
+      string invalid;
+      cin >> invalid;
+      cout << "Invalid. Enter a number from 1 to 5: ";
+    }
+    
+  }
+  return integer;
 }

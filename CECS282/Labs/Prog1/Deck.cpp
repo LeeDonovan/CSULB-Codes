@@ -8,16 +8,16 @@ using namespace std;
 Deck::Deck()
 {
     int suitNum;
-    char jamesBond;
+    char JT;
     char toxic;
     int yeet = 0;
     for (int i = 0; i < 4; i++)
     {
         suitNum = i;
-        if (suitNum == 0) jamesBond = 'S';
-        if (suitNum == 1) jamesBond = 'H'; 
-        if (suitNum == 2) jamesBond = 'D';
-        if (suitNum == 3) jamesBond = 'C'; 
+        if (suitNum == 0) JT = 'S';
+        if (suitNum == 1) JT = 'H'; 
+        if (suitNum == 2) JT = 'D';
+        if (suitNum == 3) JT = 'C'; 
         
         for (int j = 0; j < 13; j++)
         {
@@ -35,7 +35,7 @@ Deck::Deck()
             if (j == 11) toxic = 'Q';
             if (j == 12) toxic = 'K';
             
-            deckofCards[yeet].setCard(toxic, jamesBond);
+            deckofCards[yeet].setCard(toxic, JT);
             yeet++;
         }
     }
