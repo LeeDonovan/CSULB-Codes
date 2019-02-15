@@ -17,3 +17,39 @@ Top = 0;
 
 reset calls setcard() 52 times
 */ 
+
+/* 
+
+void swap(int x, int y);
+
+void swap(int x, int y)
+{
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+
+passing by value
+int main()
+{
+    int a = 20;
+    int b = 30;
+    swap(a,b);
+    cout << a << b;
+    return 0;
+}
+*/
+
+/*
+passing by reference
+int main()
+{
+    int x;
+    x = 2;
+    int &y = x;
+}
+*/
+
+//pass by pointer

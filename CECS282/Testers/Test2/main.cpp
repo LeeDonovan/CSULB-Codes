@@ -1,24 +1,25 @@
-
-#include <time.h>
-#include <cstdlib.h>
 #include <iostream>
+using namespace std;
 
-int sum(int,int);
+void swap(int &, int &);
+
+void swap(int &x, int &y)
+{
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
+
 
 int main()
 {
-    int x = 3;
-    int y = 7;
-    int z = sum(x,y);
-    std::cout<<z;
+    int a = 20;
+    int b = 30;
+    swap(a,b);
+    cout << a << b;
     return 0;
 }
-
-int sum(int a, int b)
-{
-  return a+b;
-}
-
-srand(time())
 
 

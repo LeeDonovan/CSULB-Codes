@@ -3,10 +3,14 @@
 #include <cstdlib>
 #include <time.h>
 #include <iostream>
+#include <String>
+#include <sstream>
 using namespace std;
-
+int ten = 10;
+char aten = 10;
 Deck::Deck()
 {
+
     int suitNum;
     char JT;
     char toxic;
@@ -34,9 +38,11 @@ Deck::Deck()
             if (j == 10) toxic = 'J';
             if (j == 11) toxic = 'Q';
             if (j == 12) toxic = 'K';
-            
+
             deckofCards[yeet].setCard(toxic, JT);
             yeet++;
+            
+            
         }
     }
 };

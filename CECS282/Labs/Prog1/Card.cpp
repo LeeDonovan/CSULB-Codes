@@ -1,6 +1,6 @@
 #include "Card.h"
 #include <iostream>
-
+#include <string>
 
 using namespace std;
 
@@ -11,11 +11,15 @@ Card::Card()
     bool faceUp = false;
 };
 
+
+
 void Card::setCard(char r, char s)
 {
     rank = r;
     suit = s;
 };
+
+
 
 Card::Card(char r, char s)
 {
@@ -50,7 +54,19 @@ int Card::getValue()
 
 void Card::showCard()
 {
-    cout <<rank <<suit;
+    if (rank == 'T')
+    {
+        cout << "10"<<suit;
+    }
+    else
+    {
+        cout << rank<<suit;
+    }
+    
+    
+    
+    
+    
 };
 
 
