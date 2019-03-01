@@ -2,6 +2,9 @@
 #define MYDATE_H
 
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 
 class myDate
@@ -14,15 +17,19 @@ class myDate
     public:
         myDate();//done
         myDate(int m, int d, int y);//done
-        void display();
-        void increaseDate(int n);
-        void decreaseDate(int n);
-        int daysBetween(myDate d);
+        void display();//done
+        void increaseDate(int n);//done
+        void decreaseDate(int n);//done
+        int daysBetween(myDate d);//done
         int getMonth();//done
         int getDay();//done
         int getYear();//done
-        string dayName();
+        string dayName();//done
+        void increaseByOne();//done
+        void decreaseByOne();//done
+        int dayOfYear();
 
 };
 
 #endif 
+

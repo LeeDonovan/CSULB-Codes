@@ -1,0 +1,20 @@
+#include "myDate.h"
+#include <string>
+
+struct student
+{
+    char name[20];
+    int 10;
+    char grade;
+    myDate birthday;
+    string hometown;
+}
+
+int x = 3;
+int *ptr = &x;
+int arr[10] = {2,4,6};
+int *aptr[10];
+for(int i = 0; i < 10; i++)
+{
+    aptr[i] = &arr[i];
+}

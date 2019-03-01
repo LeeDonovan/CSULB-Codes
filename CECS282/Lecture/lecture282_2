@@ -1,0 +1,26 @@
+int main()
+{
+    int N[10];
+    populate(N);
+    display(N);
+    int x = 3;
+    cout << sizeof(x);// 4 comes out since 4-bit
+    char e;
+    cout << sizeof(c);// 1 comes out since chars are 1 bit
+    int *nptr = &N[0];
+    populate(nptr);
+}
+
+n is a pointer 
+
+              (int n[])
+void populate(int *n)//this pases in N 
+{
+    //cout << sizeof(n);//size of n is 4 bytes
+    for(int i = 0; i < 10; i++)
+    {
+        n[i] = i+1;//if parameter passes (int n[])
+        *n = i + 1;//
+    }
+    
+}
