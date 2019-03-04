@@ -1,13 +1,20 @@
 #include "myDate.h"
 #include <string>
 
-struct student
+struct Student
 {
     char name[20];
-    int 10;
+    int ID;
     char grade;
     myDate birthday;
     string hometown;
+};
+
+int main()
+{
+    Student *orig[10];
+    populate(orig);
+    Student *copy[10];
 }
 
 int x = 3;
@@ -17,4 +24,23 @@ int *aptr[10];
 for(int i = 0; i < 10; i++)
 {
     aptr[i] = &arr[i];
+    arr
 }
+
+//sort bdays by converting bdays to julian dates 
+
+Student *ptr;
+ptr = new Student;
+ptr = new Student;
+//delete ptr
+ptr = new Student;
+
+
+populate
+
+if you pass address of pointer you pass an address of an address. 
+
+
+sortByName(copy);
+display(orig);
+display(copy);

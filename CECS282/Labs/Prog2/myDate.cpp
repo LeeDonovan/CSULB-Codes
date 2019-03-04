@@ -114,46 +114,14 @@ void myDate::increaseByOne()
 
 void myDate::decreaseDate(int n)
 {
-    for (int i = 0; i < n; i++)
+    if (n < 0)
     {
-        decreaseByOne();
+        n = n * (-1);
     }
+    J2G(G2J(y,m,d) - n, m , d, y) ;
+    
 }
 
-void myDate::decreaseByOne()
-{
-    if (d-1 < 1)
-    {
-        if (m == 3)
-        {
-            if (y % 4 == 0)
-            {
-                d = 29;
-                m = m - 1;
-            }
-            else 
-            {
-                d = 28;
-                m = m -1;
-            }
-        }
-        else if(m == 4 || m== 6 || m == 9 || m == 11)
-        {
-            d = 30;
-            m = m - 1;
-        }
-        else
-        {
-            d = 31;
-            m = m - 1;
-        }
-    }
-
-    else 
-    {
-        d = d - 1;
-    }
-}
 
 
 
@@ -194,32 +162,32 @@ void myDate::display()
         {
             if ( m == 2 && y % 4 == 0 && d == 29)
             {
-                cout << month[m-1] << " " << d << ", " << y << endl;
+                cout << month[m-1] << " " << d << ", " << y;
             }
             else if (d <=30)
             {
-                cout << month[m-1] << " " << d << ", " << y << endl;
+                cout << month[m-1] << " " << d << ", " << y;
             }
             else
             {
                 m = 5;//May
                 d = 11;//11th
                 y = 1959;
-                cout << month[m-1] << " " << d << ", " << y << endl;
+                cout << month[m-1] << " " << d << ", " << y;
             }
         }
         else
         {
             if (d <= 31 && d > 0)
             {
-                cout << month[m-1] << " " << d << ", " << y << endl;
+                cout << month[m-1] << " " << d << ", " << y;
             }
             else
             {
                 m = 5;//May
                 d = 11;//11th
                 y = 1959;
-                cout << month[m-1] << " " << d << ", " << y << endl;
+                cout << month[m-1] << " " << d << ", " << y;
             }
             
         }
@@ -229,7 +197,7 @@ void myDate::display()
         m = 5;//May
         d = 11;//11th
         y = 1959;
-        cout << month[m-1] << " " << d << ", " << y << endl;
+        cout << month[m-1] << " " << d << ", " << y;
     }
     
 
@@ -257,7 +225,7 @@ int myDate::daysBetween(myDate x)
     int yy = x.getYear();
     int q = G2J(yy,mm, dd);
     int p = G2J(y, m, d);
-    return (p - q);
+    return (q- p);
 
 
 }

@@ -35,7 +35,7 @@ int main()
 	cout << "\n\n";
 
 	Bday.decreaseDate(x); // setting Bday back to original value
-
+	
 	month = duedate.getMonth();
 	day = duedate.getDay();
 	year = duedate.getYear();
@@ -44,7 +44,7 @@ int main()
 	cout << " is also equal to "<<month<<"/"<<day<<"/"<<year<<endl;
 
 	myDate July4(7,4,2019);
-	cout << "This year the 4th of July will happen "<< (July4.dayOfYear()-1) << "days after New Years\n\n";
+	cout << "This year the 4th of July will happen "<< (July4.dayOfYear()-1) << " days after New Years\n\n";
 
 	myDate bogus(23,12,2007);
 	cout << "The value of the bogus date is:";
