@@ -1,54 +1,57 @@
+
 public class Car extends Vehicle
 {
-    private String name;
-    private int costPerGall;
-    private Engine engine;
-    private String fuel;
-    private Radio radio;
-    private int mpg = 3;
-
-    public Car()
+	private String name;
+	private int milesperGallon;
+	private Engine engine;
+	private Radio radio;
+	private String fuel;
+	final int fuelcostperGallon = 3;
+	public Car()
 	{
-		this("No name ", 20, new Engine(), new Radio());
+		this("No name Car", 20, new Engine("Chevy", "Gas"));
 	}
 	public Car(String carName)
 	{
-		this(carName, 20, new Engine(), new Radio());
-    }
-    public Car(String CarName, int CarcostperHour)
-	{
-		this(CarName, CarcostperHour, new Engine(), new Radio());
+		this(carName, 20, new Engine("Chevy", "Gas"));
 	}
-	public Car(String CarName, int CarcostperHour, Engine CarEngine, Radio CarRadio)
+	public Car(String carName, int carmilesperGallon)
 	{
-		name = CarName;
-		costPerGall = CarcostperHour;
-        engine = CarEngine;
-        radio = CarRadio;
+		this(carName, carmilesperGallon, new Engine("Chevy", "Gas"));
+		
 	}
-	public Car(Car x)
+	public Car(String carName, int carmilesperGallon, Engine carEngine)
 	{
-		name = x.name;
-		costPerGall = x.costPerGall;
-		engine = x.engine;
-        fuel = x.fuel;
-        radio = x.radio;
-    }
-
-    public int getTripCost(int numofMiles)
+		name = carName;
+		milesperGallon= carmilesperGallon;
+		engine = carEngine;
+		radio = new Radio();
+	}
+	public Car(Car c)
+	{
+		name = c.name;
+		milesperGallon = c.milesperGallon;
+		engine = c.engine;
+		fuel = c.fuel;
+		radio = c.radio;
+	}
+	public void setRadio(Radio carRadio)
+	{
+		radio = carRadio;
+	}
+	public int getTripCost(int numofMiles)
 	{
 		int cost = 0;
-		cost = (numofMiles/costPerGall)* mpg;
+		cost = ((numofMiles / milesperGallon) * fuelcostperGallon);
 		return cost;
-    }
-    
-    public boolean equals(Object other)
+	}
+	public boolean equals(Object other)
 	{
 		if(!(other instanceof Car)) return false;
 		else
 		{
-			Car a = (Car)other;
-			if (engine == a.engine && costPerGall == a.costPerGall)
+			Car c = (Car)other;
+			if (engine == c.engine && milesperGallon == c.milesperGallon)
 				return true;
 			else
 				return false;
@@ -57,17 +60,9 @@ public class Car extends Vehicle
 	public String getName()
 	{
 		return name;
-    }
-    
-    public Radio setRadio(Radio uRadio)
-    {
-		this.radio = uRadio;
-		return radio;
-    }
-
-    public String toString()
+	}
+	public String toString()
 	{
-        return "Car: Name = " + name + ", " + engine + ", Cost per Gallon = " + 
-        costPerGall + ", Radio: " + radio;
+		return "Car: Name = " + name + ", " + engine + ", MPG = " + milesperGallon + ", " + radio;
 	}
 }

@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-// Brian Tran	- 016678231
-// Donovan Lee- 016741645
+
 public class AssignmentOne 
 {
 
@@ -29,7 +28,6 @@ public class AssignmentOne
 		vehicles.add(a2);
 		vehicles.add(a3);
 		vehicles.add(a4);
-		System.out.println(vehicles);
 		vehicles.add(a5);
 		vehicles.add(c1);
 		vehicles.add(c2);
@@ -65,6 +63,5 @@ public class AssignmentOne
 	static private void sop(String s)
 	{
 		System.out.println(s);
-	}
 	}
 }

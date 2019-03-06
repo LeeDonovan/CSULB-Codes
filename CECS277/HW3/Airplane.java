@@ -1,3 +1,4 @@
+
 public class Airplane extends Vehicle
 {
 	private String name;
@@ -23,12 +24,12 @@ public class Airplane extends Vehicle
 		costperHour = airplanecostperHour;
 		engine = airplaneEngine;
 	}
-	public Airplane(Airplane y)
+	public Airplane(Airplane airplane)
 	{
-		name = y.name;
-		costperHour = y.costperHour;
-		engine = y.engine;
-		fuel = y.fuel;
+		name = airplane.name;
+		costperHour = airplane.costperHour;
+		engine = airplane.engine;
+		fuel = airplane.fuel;
 	}
 	public int getTripCost(int numofMiles)
 	{

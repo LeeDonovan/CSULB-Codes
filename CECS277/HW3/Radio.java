@@ -1,12 +1,18 @@
-public class Radio extends Car
+
+public class Radio 
 {
-    private String radio;
-    public Radio()
-    {
-        radio = "Original";
-    }
-    public Radio(String x)
-    {
-        radio = x;
-    }
+	private String radio;
+	public Radio()
+	{
+		this("Original");
+	}
+	public Radio(String uRadio)
+	{
+		radio = uRadio;
+	}
+	public String toString()
+	{
+		return "Radio: " + radio;
+	}
 }
+
