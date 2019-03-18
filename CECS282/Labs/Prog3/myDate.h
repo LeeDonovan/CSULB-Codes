@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -25,8 +26,12 @@ class myDate
         int getDay();//done
         int getYear();//done
         string dayName();//done
+        void increaseByOne();//done
+        void decreaseByOne();//done
         int dayOfYear();//done
-        string formatDate();
+        void formatDate(int x);
+        string fixedDate();
+
 
 };
 

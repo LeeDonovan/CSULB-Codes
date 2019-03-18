@@ -100,25 +100,25 @@ void myDate::display()
         {
             if ( m == 2 && y % 4 == 0 && d == 29)
             {
-                cout << month[m-1] << " " << d << ", " << y;
+                cout << month[m-1] << "" << d << ", " << y;
             }
             else if (d <=30)
             {
-                cout << month[m-1] << " " << d << ", " << y;
+                cout << month[m-1] << "" << d << ", " << y;
             }
             else
             {
                 m = 5;//May
                 d = 11;//11th
                 y = 1959;
-                cout << month[m-1] << " " << d << ", " << y;
+                cout << month[m-1] << "" << d << ", " << y;
             }
         }
         else
         {
             if (d <= 31 && d > 0)
             {
-                cout << month[m-1] << " " << d << ", " << y;
+                cout << month[m-1] << "" << d << ", " << y;
             }
             else
             {
@@ -174,4 +174,17 @@ int  myDate::dayOfYear()
     int og = G2J(y, m, d);
     int def = G2J(temp.getYear(), temp.getMonth(), temp.getDay());
     return (og - def)+1;
+}
+
+void myDate::formatDate(int x)
+{
+    J2G(x, m,d,y);
+    
+}
+
+string myDate::fixedDate()
+{
+    string month[12] = {"January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    string monthr = month[this->getMonth()-1] +" " +to_string(this->getDay()) + ", " + to_string(this->getYear());
+    return monthr;
 }

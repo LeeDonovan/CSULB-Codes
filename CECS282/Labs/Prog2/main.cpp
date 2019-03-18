@@ -16,8 +16,7 @@ int main()
     d1.display();
     cout <<d.daysBetween(d1);
     cout << d1.dayName();
-
-
+    
     return 0;
 }
 
