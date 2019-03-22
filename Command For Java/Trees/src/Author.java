@@ -49,7 +49,7 @@ class Author implements Comparable<Author>{
 		tree.add(auth2);
 		tree.add(auth3);
 		tree.add(auth4);
-						
+
 		System.out.println("compareTo(1 to 2): " + auth1.compareTo(auth2));
 		System.out.println("compareTo(2 to 1): " + auth2.compareTo(auth1));
 		System.out.println("equals(1 to 2): " + auth1.equals(auth2));
