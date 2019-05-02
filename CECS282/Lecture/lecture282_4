@@ -1,0 +1,57 @@
+while(*p++ = *q++)
+
+x = strlen(c);
+    strcpy(tar, src);//uses target variable 
+    strcat(tar, src); // cat = concatnate
+    strcmp(c,c1); 
+
+int n[] = {1,2,3};
+int n1[10] = {1,2,3}; //n1 array: remaining spaces = 0, 1|2|3|0....
+char c[] = {'s', 't', 'e','v','e'};// index 0-4 s|t|e|v|e
+char c1[] = "Steve";//c1 S|t|e|v|e|null or 0 (null terminated character array/string/cstring)
+cout << n;//prints out address
+cout << n[1]; // prints char
+cout << c1;//prints out Steve
+cout << c1[1];
+cout << c; //prints out elements as if a string and stops at the null(end)
+___________________________________________________________________________________________________
+
+
+string names[2] = {"Steve", "Gold"};
+char fname[10];
+char last[10];
+strcpy(name,names[0].cstr());//.cstr() converts into a string since names[] is an array. 
+strcpy(last, names[1].cstr());
+
+void strcpy(char a[], char b[])
+{
+    int i = 0;
+    while(b[i] != null)
+    {
+        a[i] = b[i];
+        i++;
+    }
+    a[i] = 0;
+}
+
+
+if using pointers:
+
+void strcpy(char *a, char *b)
+{
+    int i = 0;
+    while(*(b + i))
+    {
+        *(a+i) = *(b+i);
+        i++;
+    }
+    *(a+i) = 0
+}
+
+final form for pointers:
+
+void strcpy(char *a, char *b)
+{
+    while(*(a++) = *(b++)); // same as while(*p++ = *q++);//how string copy is written
+    
+}

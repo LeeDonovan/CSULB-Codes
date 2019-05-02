@@ -1,0 +1,71 @@
+map - speed
+static - count 
+exception
+template
+
+int divide (int a, int b)
+{
+    int result;
+    try
+    {
+        result = a/b;
+    }
+    catch(...)
+    {
+        cout<<"divide by zero not allowed";
+    }
+    return result;
+}
+try {}
+catch(...)
+{
+
+}
+
+int main()
+{
+    divide(x,y);
+    catch(...)
+    {
+
+    }
+}
+
+goldBonacci(number n)
+{
+    c = a+b;
+    if(c < 0)
+    {
+        throw exception
+    }
+    catch(...)
+    {
+        resolve here 
+    }
+}
+
+int fibo(int);
+BigInt fibo(BigInt);
+
+int main()
+{
+    int n = 173;
+    int result = fibo(n);
+    cout << result;
+    BigInt N = 173;
+    BigInt R = fibo(N);
+    cout << R; 
+}
+template <typename T>;
+
+T fibo(T x) // T is universal for types
+{
+    if (x == T(1) || x == T(0))
+    {
+        return T(1);
+    }
+    else
+    {
+        return fibo(x-T(2)) + fibo(x-T(2));
+    }
+}

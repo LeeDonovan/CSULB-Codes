@@ -1,0 +1,32 @@
+#include <map>
+#include <string>
+#include <iostream>
+using namespace std;
+int main()
+{
+    map<char, int> freq;
+    map<char, int> ::iterator mit;
+    string s = "the quick brown fox jumped over two lazy dogs";
+    string::iterator sit = s.begin();
+    while(sit != s.end())
+    {
+        if (freq.find(*sit) == freq.end())
+        {
+            freq[*sit] = 1;
+        }
+        else
+        {
+            freq[*sit] += 1;
+        }
+        sit++;
+    }
+    mit = freq.begin();
+    while(mit != freq.end())
+    {
+        cout<< mit->first;
+        cout <<':';
+        cout << mit->second;
+    }
+    
+    return 0;
+}

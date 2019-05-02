@@ -1,0 +1,21 @@
+& is an address
+* is in front of variable name 
+char * cptr;
+int * ptr;
+int y = sizeof(ptr);
+
+can declare pointer by itself
+cant declare a reference by itself
+
+ptr = &x; points to x
+ptr = &y; points to y
+
+char c1 = 'z'; 
+
+cptr = &c1;//points to 'z' 
+
+cout << c1; //'z' prints out
+cout << *cptr;//'z' prints out 
+c1 = '?';
+
+*cptr = '5';

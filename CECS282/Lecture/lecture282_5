@@ -1,0 +1,51 @@
+struct Student 
+
+
+int main()
+{
+    Student *sptr;//could be initialized to null
+    populate(&sptr);
+    //
+    // int *iptr| iptr = new int| *iptr = 6; | iptr = new int(4); | 6 takes up space while 4 is new int.
+    display(sptr);
+}
+
+void populate(Student **s)//pass by reference| called double indirection|grabs address from sptr 
+{
+    *s = new Student;//now sptr points to Student data
+    (*s).ID(3264);//either one is fine
+    (*s)->ID = 3264;
+    strcpy(s->name, "Donald");
+    s->grade = 'A';
+}
+
+__________________________________________________________________________________________________
+
+int main()
+{
+    Student *original[10];
+    Student *copy[10];
+    populate(sptr);
+    display(sptr);
+    sortByName(copy);//use copy structure for sorting
+    display(original);//sees original order
+    display(copy);//sees sorted names
+}
+
+void populate(Student *sar[])//sar is really a pointer to the first student | *sar[] or **sar
+{
+    //sar[0] = new Student;//sar points to sptr that points to the data.
+    for(int i = 0; i < 10; i++)
+    {
+        sar[i] = new Student;
+        sar[i]->ID = 3264;
+        sar[i]->hometown = "Boston";
+        sar[i]-> birthday = date;
+    }
+}
+
+for display() just cout like below.
+{
+    cout <<sar[i]->name;
+}
+

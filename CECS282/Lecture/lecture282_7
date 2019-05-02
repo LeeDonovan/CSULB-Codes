@@ -1,0 +1,41 @@
+Day 0 - r
+Month 1 - R 
+Month 2 - R r
+Month 3 - R r R 
+Month 4 - R r R R r 
+Month 5 - R r R R r R r R 
+
+
+recursive statement takes to long
+number to big <- can use BigInts function 
+int fibo(int n)
+{
+    static int counter = 0;
+    counter++;
+    if(n == -1)return counter;
+    if(n ==0 || n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return fibo(n-1) + fibo(n-2);
+    }
+}
+
+int count();
+
+int count()
+{
+    static int counter = 0;
+    counter++;
+    return counter;
+}
+
+int main()
+{
+    for (int i = 0; i<10;i++)
+    {
+        cout<<count();
+    }
+}
