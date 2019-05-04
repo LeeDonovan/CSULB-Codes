@@ -445,167 +445,92 @@ class BigInt
 ////////////////sub -//////////////////////////////////////////////////////////
         BigInt operator-(BigInt x)
         {
-            vector<char> second = x.storage;
             vector<char> first = storage;
-            vector<char> turnt;
-            vector<char> total;
-            char digit;
-            int carry = 0;
+            vector<char> second = x.storage;
+            vector<char> result;
+            int maxSize;
+            cout<<"first size: "<<first.size()<<"\nsecond size: "<<second.size()<<endl;
+            reverse(first.begin(),first.end());
+            reverse(second.begin(),second.end());
+            if (first.size() < second.size())
+            {
+                maxSize = second.size();
+                for (int i=0; i < second.size() - first.size(); i++)
+                {
+                    first.push_back('0');
+                }
+            }
+            else 
+            {
+                cout<<"sub: "<<first.size() - second.size()<<endl;
+                maxSize = first.size();
+                for (int i=0; i < first.size()-second.size()+1; i++)
+                {
+                    second.push_back('0');
+                }
+            }
+            
+            // for(int i = 0; i <maxSize;i++)
+            // {
+            //     if (first.at(i) < second.at(i))
+            //     {
+            //         vector<char> temp = first;
+            //         first = second;
+            //         second = temp;
+            //         break;
+            //     }
+            // }
+            reverse(first.begin(),first.end());
+            reverse(second.begin(),second.end());
             string fstore(first.begin(),first.end());
             string sstore(second.begin(),second.end());
-            string str = sstore;
-            str = str.substr(1,str.length());
-            reverse(str.begin(),str.end());
-            int len = str.length();
-            for(int i = 0; i<len;i++)
+            cout<< "fstore: "<<fstore<<"\nsstore: "<<sstore<<endl;
+            reverse(fstore.begin(),fstore.end());
+            reverse(sstore.begin(),sstore.end());
+            cout<< "rev fstore: "<<fstore<<"\nrev sstore: "<<sstore<<endl;
+            int carry = 0;
+            cout<<"max: "<<maxSize<<endl;
+            for (int i = 0; i < maxSize; i++)
             {
-                int temp =((int)str[i] -48);
-                temp = 9 - temp;
-                temp = temp + carry;
-                if(i == 0 && temp == 9)
+                int AD = (int) fstore[i] - 48;
+                int BD = (int) sstore[i] - 48;
+                cout<<"AD: "<<AD<<"\nBD: "<<BD<<endl;
+                if (carry == 1)
                 {
-                    temp = temp + 1;
-                    int mod = temp%10;
-                    carry = 1;
-                    digit = '0' + mod;
-                    turnt.push_back(digit);
+                    BD = BD + 1;
+                    cout<<"BD + 1 = "<<BD<<endl;
+                    carry = 0;
                 }
-                else if(i == 0)
+                if (AD < BD)
                 {
-                    temp = temp + 1;
-                    digit = '0' + temp;
-                    turnt.push_back(digit);
-                }
-                else if(temp >= 10)
-                {
-                    int mod = temp%10;
+                    AD = AD + 10;
+                    cout<<"AD + 10 = "<<AD<<endl;
+                    char digit = '0' + (AD- BD);
+                    cout<<"AD < BD pushback: "<<digit<<endl;
+                    result.push_back(digit);
                     carry = 1;
-                    digit = '0' + mod;
-                    turnt.push_back(digit);
                 }
                 else
                 {
-                    carry = 0;
-                    digit = '0' + temp;
-                    turnt.push_back(digit);
+                    if(i == maxSize && AD - BD == 0)
+                    {
+                        break;
+                    }
+                    char digit = '0' + (AD- BD);
+                    cout<<"else pushback: "<<digit<<endl;
+                    result.push_back(digit);
                 }
-                    
+                
             }
-            turnt.push_back('9');
-            reverse(turnt.begin(),turnt.end());
-            cout<<"turnt: "<<turnt<<endl;
+            string endgame(result.begin(),result.end());
+            if (endgame[endgame.length()-1] == '0')
+            {
+                endgame = endgame.substr(0,endgame.length()-1);
+            }
+            reverse(endgame.begin(),endgame.end());
+            return BigInt(endgame);
 
-
-            // cout<< "fstore: "<<fstore<<"\nsstore: "<<sstore<<endl;
-            // if(fstore.length() == sstore.length())
-            // {
-            //     for(int i = 0; i < fstore.length(); i++)
-            //         {
-            //             int temp =((int)fstore[i] -48);
-            //             temp = temp - carry;
-            //             cout<<"temp: "<<temp<<endl;
-            //             int temp1 = ((int)sstore[i] -48);
-            //             cout<<"temp1: "<<temp1<<endl;
-            //             int tempall = temp - temp1;
-            //             if(tempall <= 0 && i != fstore.length()-1)
-            //             {
-            //                 cout<<"if"<<endl;
-            //                 carry = 10 + temp;
-            //                 cout<<"carry: "<<carry<<endl;
-            //                 tempall = carry - temp1;
-            //                 //tempall = tempall - temp1;
-            //                 cout<<"tempall: "<<tempall<<endl;
-            //                 lol = '0' + tempall;
-            //                 carry = 1;
-            //                 total.push_back(lol);
-            //             }
-            //             else
-            //             {
-            //                 cout<<"else"<<endl;
-            //                 carry = 0;
-            //                 tempall = tempall + carry;
-            //                 cout<<"tempall: "<<tempall<<endl;
-            //                 lol = '0' + tempall;
-            //                 total.push_back(lol);
-            //             }
-                        
-                        
-            //         }
-            //         string xd(total.begin(),total.end());
-            //         reverse(xd.begin(),xd.end());
-            //         if(xd[0] == '0')
-            //         {
-            //             string hehe = xd.substr(1,xd.length());
-            //             return BigInt (hehe);
-            //         }
-            //         else
-            //         {
-            //             total.push_back('0');
-            //             string xd(total.begin(),total.end());
-            //             reverse(xd.begin(),xd.end());
-            //             string hehe = xd.substr(1,xd.length());
-            //             return BigInt (hehe);
-            //         }
-            // }
-            // if(fstore.length() > sstore.length())
-            // {
-            //     reverse(fstore.begin(),fstore.end());
-            //     cout<<"fstore rev: "<<fstore<<endl;
-            //     reverse(sstore.begin(),sstore.end());
-            //     cout<<"sstore rev: "<<sstore<<endl;
-            //     for(int i = 0; i < fstore.length(); i++)
-            //         {
-            //             cout<<"\nLoop "<<i<<endl;
-            //             int temp =((int)fstore[i] -48);
-            //             temp = temp - carry;
-            //             cout<<"temp: "<<temp<<endl;
-            //             int temp1 = ((int)sstore[i] -48);
-            //             cout<<"temp1: "<<temp1<<endl;
-            //             int tempall = temp - temp1;
-            //             if(tempall < 0 && i != fstore.length())
-            //             {
-            //                 cout<<"if"<<endl;
-            //                 carry = 10 + temp;
-            //                 cout<<"carry: "<<carry<<endl;
-            //                 tempall = carry - temp1;
-            //                 //tempall = tempall - temp1;
-            //                 cout<<"tempall: "<<tempall<<endl;
-            //                 lol = '0' + tempall;
-            //                 carry = 1;
-            //                 total.push_back(lol);
-            //             }
-            //             else if(tempall == -48)
-            //             {
-            //                 tempall = 0;
-            //             }
-            //             else
-            //             {
-            //                 cout<<"else"<<endl;
-            //                 carry = 0;
-            //                 tempall = tempall + carry;
-            //                 cout<<"tempall: "<<tempall<<endl;
-            //                 lol = '0' + tempall;
-            //                 total.push_back(lol);
-            //             }
-                        
-                        
-            //         }
-            //         string xd(total.begin(),total.end());
-            //         reverse(xd.begin(),xd.end());
-            //         if(xd[0] == '0')
-            //         {
-            //             string hehe = xd.substr(1,xd.length());
-            //             return BigInt (hehe);
-            //         }
-            //         else
-            //         {
-            //             total.push_back('0');
-            //             string xd(total.begin(),total.end());
-            //             reverse(xd.begin(),xd.end());
-            //             string hehe = xd.substr(1,xd.length());
-            //             return BigInt (hehe);
-            //         }
-            // }
+            
         }
 ////////////////////////////////////////////cout///////////////////////////////////////////////////
         friend ostream & operator<<(ostream& o,const BigInt& x) 
@@ -766,11 +691,12 @@ class BigInt
 
 int main()
 {
-    //BigInt b(-70);//9888
-    BigInt x = BigInt(21) + BigInt(11);
-    BigInt y = BigInt(40) - BigInt(20);
+    //BigInt b(-708);//9888
+    //BigInt x = BigInt(34) + BigInt("-6000000");
+    BigInt y = BigInt(4010) - BigInt(20);
     //b.showStorage();
-    cout << x<<endl;
+    cout<<"\n";
+    //cout << x<<endl;
     cout <<y<<endl;
     //cout<<b<<endl;
 

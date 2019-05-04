@@ -1,0 +1,110 @@
+// cout<< "fstore: "<<fstore<<"\nsstore: "<<sstore<<endl;
+            // if(fstore.length() == sstore.length())
+            // {
+            //     for(int i = 0; i < fstore.length(); i++)
+            //         {
+            //             int temp =((int)fstore[i] -48);
+            //             temp = temp - carry;
+            //             cout<<"temp: "<<temp<<endl;
+            //             int temp1 = ((int)sstore[i] -48);
+            //             cout<<"temp1: "<<temp1<<endl;
+            //             int tempall = temp - temp1;
+            //             if(tempall <= 0 && i != fstore.length()-1)
+            //             {
+            //                 cout<<"if"<<endl;
+            //                 carry = 10 + temp;
+            //                 cout<<"carry: "<<carry<<endl;
+            //                 tempall = carry - temp1;
+            //                 //tempall = tempall - temp1;
+            //                 cout<<"tempall: "<<tempall<<endl;
+            //                 lol = '0' + tempall;
+            //                 carry = 1;
+            //                 total.push_back(lol);
+            //             }
+            //             else
+            //             {
+            //                 cout<<"else"<<endl;
+            //                 carry = 0;
+            //                 tempall = tempall + carry;
+            //                 cout<<"tempall: "<<tempall<<endl;
+            //                 lol = '0' + tempall;
+            //                 total.push_back(lol);
+            //             }
+                        
+                        
+            //         }
+            //         string xd(total.begin(),total.end());
+            //         reverse(xd.begin(),xd.end());
+            //         if(xd[0] == '0')
+            //         {
+            //             string hehe = xd.substr(1,xd.length());
+            //             return BigInt (hehe);
+            //         }
+            //         else
+            //         {
+            //             total.push_back('0');
+            //             string xd(total.begin(),total.end());
+            //             reverse(xd.begin(),xd.end());
+            //             string hehe = xd.substr(1,xd.length());
+            //             return BigInt (hehe);
+            //         }
+            // }
+            // if(fstore.length() > sstore.length())
+            // {
+            //     reverse(fstore.begin(),fstore.end());
+            //     cout<<"fstore rev: "<<fstore<<endl;
+            //     reverse(sstore.begin(),sstore.end());
+            //     cout<<"sstore rev: "<<sstore<<endl;
+            //     for(int i = 0; i < fstore.length(); i++)
+            //         {
+            //             cout<<"\nLoop "<<i<<endl;
+            //             int temp =((int)fstore[i] -48);
+            //             temp = temp - carry;
+            //             cout<<"temp: "<<temp<<endl;
+            //             int temp1 = ((int)sstore[i] -48);
+            //             cout<<"temp1: "<<temp1<<endl;
+            //             int tempall = temp - temp1;
+            //             if(tempall < 0 && i != fstore.length())
+            //             {
+            //                 cout<<"if"<<endl;
+            //                 carry = 10 + temp;
+            //                 cout<<"carry: "<<carry<<endl;
+            //                 tempall = carry - temp1;
+            //                 //tempall = tempall - temp1;
+            //                 cout<<"tempall: "<<tempall<<endl;
+            //                 lol = '0' + tempall;
+            //                 carry = 1;
+            //                 total.push_back(lol);
+            //             }
+            //             else if(tempall == -48)
+            //             {
+            //                 tempall = 0;
+            //             }
+            //             else
+            //             {
+            //                 cout<<"else"<<endl;
+            //                 carry = 0;
+            //                 tempall = tempall + carry;
+            //                 cout<<"tempall: "<<tempall<<endl;
+            //                 lol = '0' + tempall;
+            //                 total.push_back(lol);
+            //             }
+                        
+                        
+            //         }
+            //         string xd(total.begin(),total.end());
+            //         reverse(xd.begin(),xd.end());
+            //         if(xd[0] == '0')
+            //         {
+            //             string hehe = xd.substr(1,xd.length());
+            //             return BigInt (hehe);
+            //         }
+            //         else
+            //         {
+            //             total.push_back('0');
+            //             string xd(total.begin(),total.end());
+            //             reverse(xd.begin(),xd.end());
+            //             string hehe = xd.substr(1,xd.length());
+            //             return BigInt (hehe);
+            //         }
+            // }
