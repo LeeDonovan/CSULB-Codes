@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PartTwo",
+            "request": "launch",
+            "mainClass": "PartTwo",
+            "projectName": "CSULB-Codes_fa52de31"
+        }
+    ]
+}
