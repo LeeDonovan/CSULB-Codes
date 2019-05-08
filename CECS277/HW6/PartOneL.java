@@ -280,7 +280,7 @@ public class PartOneL
     public static void main(String[] args) throws IOException 
     {
     	PartOneL x = new PartOneL();
-    	x.randomNumber();
+    	x.hashMap();
   
     }
 }

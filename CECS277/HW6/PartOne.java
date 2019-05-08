@@ -78,7 +78,7 @@ public class PartOne
 	public static void treeSet() throws IOException
 	{
 		System.out.println("Using TreeSet\n");
-		Scanner file = new Scanner(new File("CC:\\Users\\Donald\\Desktop\\Dont Open\\CSULB-Codes\\CECS277\\HW6\\alice30.txt"));
+		Scanner file = new Scanner(new File("C:\\Users\\Donald\\Desktop\\Dont Open\\CSULB-Codes\\CECS277\\HW6\\alice30.txt"));
 		Set<String> tree = new TreeSet<>();
 		// For each word in the input
 		//String test;
@@ -286,7 +286,7 @@ public class PartOne
 	public static void main(String[] args) throws IOException
 	{
 		PartOne x = new PartOne();
-		x.randomNumber();
+		x.PlayGame();
 		 //PartOne x = new PartOne();
 		 //x.treeSet();
 		//PartOne x = new PartOne();

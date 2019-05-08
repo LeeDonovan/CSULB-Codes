@@ -170,15 +170,6 @@ class BigInt
             }
 
         }
-        // BigInt operator ++()
-        // {
-        //     this+=1;
-        //     return this;
-        // }
-        // BigInt operator--()
-        // {
-        //     this = this-1;
-        // }
 ////////////////////add///////////////////////////////////////////////////
         BigInt operator+(BigInt x)
         {
@@ -532,6 +523,105 @@ class BigInt
 
             
         }
+
+
+        BigInt operator++()
+        {
+            BigInt temp = *this;
+            *this = *this + 1;
+            return temp;
+        }
+        BigInt operator++(int x)
+        {
+            *this = *this + 1;
+            return *this;
+           
+        }
+        BigInt& operator--()
+        {
+            BigInt temp = *this;
+            *this = *this - 1;
+            return temp;
+        }
+        BigInt operator--(int x)
+        {
+            *this = *this - 1;
+            return *this;
+            
+        }
+        bool operator<(BigInt x)
+        {
+            if(x.storage.at(0) != '9' && storage.at(0) != '9')
+            {
+                if(storage.size() > x.storage.size())
+                {
+                    return "true";
+                }
+                else if(storage.size() < x.storage.size())
+                {
+                    return "false";
+                }
+                else
+                {
+                    string first(storage.begin(), storage.end());
+                    string second(x.storage.begin(), x.storage.end());
+                    for(int i = 1; i < storage.size();i++)
+                    {
+                        int temp = 9 - ((int)first[i]-48);
+                        int temp2 = 9 -((int)second[i]-48);
+                        if(temp > temp2)
+                        {
+                            return "true";
+                        }
+                        if(temp < temp2)
+                        {
+                            return "false";
+                        }
+                    }
+                    return "false";
+                    
+                }
+            }
+            else if(x.storage.at(0) == '9' && storage.at(0) != '9')
+            {
+                return "false";
+            }
+            else if(x.storage.at(0) != '9' && storage.at(0) == '9')
+            {
+                return "true";
+            }
+            else if(x.storage.at(0) == '9' && storage.at(0) == '9')
+            {
+                if(storage.size() > x.storage.size())
+                {
+                    return "false";
+                }
+                else if(storage.size() < x.storage.size())
+                {
+                    return "true";
+                }
+                else
+                {
+                    string first(storage.begin(), storage.end());
+                    string second(x.storage.begin(), x.storage.end());
+                    for(int i = 1; i < storage.size();i++)
+                    {
+                        int temp = 9 - ((int)first[i]-48);
+                        int temp2 = 9 -((int)second[i]-48);
+                        if(temp > temp2)
+                        {
+                            return "false";
+                        }
+                        if(temp < temp2)
+                        {
+                            return "true";
+                        }
+                    }
+                    return "true";
+                    
+                }
+            }
+        }
 ////////////////////////////////////////////cout///////////////////////////////////////////////////
         friend ostream & operator<<(ostream& o,const BigInt& x) 
         {
@@ -557,6 +647,23 @@ class BigInt
                             carry = 1;
                             lol = '0' + mod;
                             tog = tog + lol;
+                        }
+                        else if( k==0 && temp <10)
+                        {
+                            temp = temp + 1;
+                            if(temp >=10)
+                            {
+                                int mod = temp%10;
+                                carry = 1;
+                                lol = '0' + mod;
+                                tog = tog + lol;
+                            }
+                            else
+                            {
+                                lol = '0' + temp;
+                                tog = tog + lol;
+                            }
+                            
                         }
                         else if(temp >=10)
                         {
@@ -691,14 +798,12 @@ class BigInt
 
 int main()
 {
-    //BigInt b(-708);//9888
-    //BigInt x = BigInt(34) + BigInt("-6000000");
-    BigInt y = BigInt(4010) - BigInt(20);
-    //b.showStorage();
-    cout<<"\n";
-    //cout << x<<endl;
-    cout <<y<<endl;
-    //cout<<b<<endl;
+    BigInt left = BigInt(34);
+    BigInt right = BigInt(5);
+    	
+
+
+
 
     
 
