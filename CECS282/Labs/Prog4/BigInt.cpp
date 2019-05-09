@@ -1,7 +1,7 @@
 /*  Donovan Lee
     CECS 282 - 05
     Program 4 - BigInt
-    April 9, 2019
+    May 9, 2019
 */
 #include <iostream>
 #include <vector>
@@ -51,8 +51,12 @@ class BigInt
         {
             int carry = 0;
             char digit;
-            if(x > 0)
+            if(x >= 0)
             {
+                if(x == 0)
+                {
+                    storage.push_back('0');
+                }
                 
                 while(x>0)
                 {
@@ -180,6 +184,7 @@ class BigInt
             int carry = 0;
             string fstore(first.begin(),first.end());
             string sstore(second.begin(),second.end());
+            cout<<" fstore: "<<fstore<<" sstore: "<<sstore;
             if(fstore[0] == sstore[0])
             {
                 if(fstore.length() == sstore.length())
@@ -440,7 +445,7 @@ class BigInt
             vector<char> second = x.storage;
             vector<char> result;
             int maxSize;
-            cout<<"first size: "<<first.size()<<"\nsecond size: "<<second.size()<<endl;
+            //cout<<"first size: "<<first.size()<<"\nsecond size: "<<second.size()<<endl;
             reverse(first.begin(),first.end());
             reverse(second.begin(),second.end());
             if (first.size() < second.size())
@@ -453,7 +458,7 @@ class BigInt
             }
             else 
             {
-                cout<<"sub: "<<first.size() - second.size()<<endl;
+                //cout<<"sub: "<<first.size() - second.size()<<endl;
                 maxSize = first.size();
                 for (int i=0; i < first.size()-second.size()+1; i++)
                 {
@@ -475,29 +480,29 @@ class BigInt
             reverse(second.begin(),second.end());
             string fstore(first.begin(),first.end());
             string sstore(second.begin(),second.end());
-            cout<< "fstore: "<<fstore<<"\nsstore: "<<sstore<<endl;
+            //cout<< "fstore: "<<fstore<<"\nsstore: "<<sstore<<endl;
             reverse(fstore.begin(),fstore.end());
             reverse(sstore.begin(),sstore.end());
-            cout<< "rev fstore: "<<fstore<<"\nrev sstore: "<<sstore<<endl;
+            //cout<< "rev fstore: "<<fstore<<"\nrev sstore: "<<sstore<<endl;
             int carry = 0;
-            cout<<"max: "<<maxSize<<endl;
+            //cout<<"max: "<<maxSize<<endl;
             for (int i = 0; i < maxSize; i++)
             {
                 int AD = (int) fstore[i] - 48;
                 int BD = (int) sstore[i] - 48;
-                cout<<"AD: "<<AD<<"\nBD: "<<BD<<endl;
+                //cout<<"AD: "<<AD<<"\nBD: "<<BD<<endl;
                 if (carry == 1)
                 {
                     BD = BD + 1;
-                    cout<<"BD + 1 = "<<BD<<endl;
+                    //cout<<"BD + 1 = "<<BD<<endl;
                     carry = 0;
                 }
                 if (AD < BD)
                 {
                     AD = AD + 10;
-                    cout<<"AD + 10 = "<<AD<<endl;
+                    //cout<<"AD + 10 = "<<AD<<endl;
                     char digit = '0' + (AD- BD);
-                    cout<<"AD < BD pushback: "<<digit<<endl;
+                    //cout<<"AD < BD pushback: "<<digit<<endl;
                     result.push_back(digit);
                     carry = 1;
                 }
@@ -508,7 +513,7 @@ class BigInt
                         break;
                     }
                     char digit = '0' + (AD- BD);
-                    cout<<"else pushback: "<<digit<<endl;
+                    //cout<<"else pushback: "<<digit<<endl;
                     result.push_back(digit);
                 }
                 
@@ -523,33 +528,56 @@ class BigInt
 
             
         }
+        
+    
 
+//////////////increment & decrement/////////////////////////////////////////////////
+    BigInt operator++(int) 
+    { 
+        BigInt temp1=*this;
+        ++(*this);
+        return temp1;
+    }
 
-        BigInt operator++()
-        {
-            BigInt temp = *this;
-            *this = *this + 1;
-            return temp;
-        }
-        BigInt operator++(int x)
-        {
-            *this = *this + 1;
-            return *this;
-           
-        }
-        BigInt& operator--()
-        {
-            BigInt temp = *this;
-            *this = *this - 1;
-            return temp;
-        }
-        BigInt operator--(int x)
-        {
-            *this = *this - 1;
-            return *this;
-            
-        }
-        bool operator<(BigInt x)
+    // post-decrement operator
+    BigInt operator--(int x) 
+    { 
+        BigInt temp;
+        temp.storage = this->storage;
+        *this = *this - 1;
+        return temp;
+    }
+
+    // pre-increment operator
+    BigInt operator++() 
+    {
+        BigInt x(1);
+        *this  = *this +  x;
+        return *this;
+    }
+
+  
+    // pre-decrement operator
+    BigInt operator--() 
+    {
+        BigInt x(1);
+        *this = *this -  x;
+        return *this;
+    }
+
+    BigInt operator+=(int x)
+    {
+        *this = *this + x;
+        return *this;
+    }
+
+    BigInt operator*=(BigInt x)
+    {
+        *this = *this * x;
+        return *this;
+    }
+/////////////bool statements//////////////////////////////////
+        bool operator>(BigInt x)
         {
             if(x.storage.at(0) != '9' && storage.at(0) != '9')
             {
@@ -622,6 +650,112 @@ class BigInt
                 }
             }
         }
+
+        bool operator==(BigInt x)
+        {
+            if(storage.size() == x.storage.size())
+            {
+                for(int i = 0; i < storage.size();i++)
+                {
+                    if(storage.at(i) !=  x.storage.at(i))
+                    {
+                        return false;
+                    }  
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        bool operator<(BigInt x)
+        {
+            if(storage.at(0) != '9' && x.storage.at(0) !='9')
+            {
+                if(storage.size() > x.storage.size())
+                {
+                    return false;
+                }
+                else if(storage.size() < x.storage.size())
+                {
+                    return true;
+                }
+                else
+                {
+                    string first(storage.begin(), storage.end());
+                    string second(x.storage.begin(), x.storage.end());
+                    for(int i = 1; i < storage.size();i++)
+                    {
+                        int temp = ((int)first[i]-48);
+                        int temp2 = ((int)second[i]-48);
+                        if(temp > temp2)
+                        {
+                            return false;
+                        }
+                        else if(temp < temp2)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                
+            }
+             else if (storage.at(0) != '9' && x.storage.at(0) == '9')
+            {
+                return false;
+            }
+            else if (storage.at(0) == '9' && x.storage.at(0) != '9')
+            {
+                return true;
+            }
+            else
+            {
+                if(storage.size() > x.storage.size())
+                {
+                    return true;
+                }
+                else if (storage.size() < x.storage.size())
+                {
+                    return false;
+                }
+                else
+                {
+                    string first(storage.begin(), storage.end());
+                    string second(x.storage.begin(), x.storage.end());
+                    for(int i = 1; i < storage.size();i++)
+                    {
+                        int temp = 9 - ((int)first[i]-48);
+                        int temp2 = 9 -((int)second[i]-48);
+                        if(temp > temp2)
+                        {
+                            return false;
+                        }
+                        if(temp < temp2)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                
+                
+            }
+            
+        }
+///////////multi *////////////////////////        
+  BigInt operator*(BigInt x)
+        {
+            BigInt multi(0);
+            for( BigInt a = 0; a < x; a++)
+            {
+                multi = multi +  *this;
+            }
+            return multi;
+        }      
 ////////////////////////////////////////////cout///////////////////////////////////////////////////
         friend ostream & operator<<(ostream& o,const BigInt& x) 
         {
@@ -707,30 +841,22 @@ class BigInt
                 if(x.storage.at(0) == '9')
                 {
                     string nums(x.storage.begin(), x.storage.end());
-                    cout<<"reg nums: "<<nums<<endl;
                     reverse(nums.begin(), nums.end());
-                    cout<<"rev nums: "<<nums<<endl;
                     string tog;
                     char lol;
                     int counter = 0;
                     for (int o = 0; o < nums.length()-1;o++)
                     {
-                        cout<<"\nLoop: "<<o<<endl;
                         counter++;
                         int temp = ((int)nums[o] - 48);
-                        cout<<"char to int: "<<temp<<endl;
                         temp = 9 - temp;
-                        cout<<"9 - int: "<<temp<<endl;
                         temp = temp + carry;
-                        cout<<"temp + carry = "<<temp<<endl;
                         if(o == 0 && temp == 9)
                         {
-                            cout<<"first loop"<<endl;
                             temp = temp + 1;
                             int mod = temp%10;
                             carry = 1;
                             lol = '0' + mod;
-                            cout<<"adds into string: "<<lol<<endl;
                             tog = tog + lol;
                         }
                         else if (temp >= 10)
@@ -789,23 +915,54 @@ class BigInt
     }
 
     
-
-        
-
-
 };
+
+
+BigInt fact(BigInt x)
+{
+    BigInt result = x;
+    if(x == 0)
+    {
+        return BigInt(1);
+    }
+    x--;
+    while(x>1)
+    {
+        result = result * x;
+        x--;
+    }
+    return result;
+   
+}
+
+// factorial using integer
+int fact(int a)
+{
+	int fact=1;
+    if(a == 0)
+    {
+        return 1;
+    }
+
+	while(a>1)
+	{
+		fact=fact*a;
+		a--;
+	}
+
+	return fact;
+}
 
 
 int main()
 {
-    BigInt left = BigInt(34);
-    BigInt right = BigInt(5);
-    	
-
-
-
-
     
+    BigInt x(10);
+    BigInt e(111);
+    BigInt t = x * e;
+    cout<<(x < e)<<" "<<t;
+
+
 
     return 0;
 
