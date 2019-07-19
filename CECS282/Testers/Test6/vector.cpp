@@ -1,29 +1,26 @@
-#include <vector>
-#include <algorithm>
 #include <iostream>
-#include <bits/stdc++.h> 
-#include <iterator>
 using namespace std;
+
 int main()
 {
-    vector<int>::reverse_iterator rit;
-    vector<int>::iterator it;//smart pointer
-    vector <int> v;//can put any type in it | v{}
-    v.push_back(3);// v{3};
-    v.push_back(7);//v{3,7}
-    v.push_back(9);//v{3,7,9}
-    v.push_back(2);//v{3,7,9,2}
-    it = v.begin();
-    rit = v.rbegin();
-    while(it != v.end())
-    {
-        cout << *it;
-        it++;
-    }
-    while(rit != v.end())
-    {
-        cout << *rit;
-        rit++;
-    }
+    int a = 3,b=6,c=9,d=10;
+    int *ptr1 = &a, *ptr2=&b,*ptr3=&c,*ptr4=&d;
 
+    ptr4 = ptr2;
+    cout<<*ptr4<<endl;
+    *ptr3 = *ptr2 + 2;
+    cout<<*ptr3<<endl;
+    *ptr3 = *ptr1 + *ptr4;
+    cout<<*ptr3<<endl;
+    ptr1 = ptr3;
+    cout<<*ptr1<<endl;
+    ptr3 = ptr2;
+    cout<<*ptr3<<endl;
+    ptr3 = ptr1;
+    cout<<*ptr3<<endl;
+    *ptr4 = 12;
+    cout<<*ptr4<<endl;
+    *ptr2 = *ptr1 + *ptr4;
+    cout<<*ptr2;
+    return 0;
 }
