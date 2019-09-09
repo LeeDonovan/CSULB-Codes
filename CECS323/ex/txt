@@ -1,0 +1,22 @@
+cfname
+cfname
+caddr
+czip
+cphone
+
+1. select * from customers;
+2. select cfname, clname from customers;
+3. select cfname , clname from customers where clname = 'Jewett' 
+4. order by cfname (desc) to decend list order;
+//where clause narrows down the rows
+// select clause goes to columns 
+//order sorts the list , if use desc then sort list will descend 
+
+pi: picks columns - project (select)
+sigma: picks rows - select (where)
+theta: narrows down rows - predicate (condition in the where clause)
+r: relation (from clause) picks tables
+
+pi sigma (theta is subscripted) (r is your supscript)
+pi cfname, clname customers
+pi cfname, clname sigma clname 'Jewett' 
