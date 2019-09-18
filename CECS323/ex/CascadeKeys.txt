@@ -1,0 +1,42 @@
+States
+Name|Pop|Mname|Mphone|
+PK  |
+        |FK          |
+
+1..1
+contains
+1..*
+City
+Name|Pop|
+Sname|Cname|Pop|Mname|Mphone
+FK   |         |FK          |
+PK	   |
+
+1..1
+blocks
+1..*
+Street
+Name|
+Sname|Cname|Stname|
+FK	   |
+PK		  |
+
+1..1
+maps
+1..*
+
+Address
+Tract#|Lot#|
+Sname|Cname|Stname|Tract#|Lot#|
+FK                |
+PK                            |
+
+Maintenence
+Name|Addr|Phone|       Mname|Mphone
+PK  |    |PK   |       |FK         |
+
+1..1            1..1
+cleans          cleans
+0..*            0..*
+
+City            States
