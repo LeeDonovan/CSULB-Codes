@@ -3,3 +3,8 @@ meltdown and specter
 pseudo randomness
 
 What makes hashing different from encryption?
+
+
+MAC - signature at the end of a message and tamper proof 
+HMAC - 
+RSA 
