@@ -425,6 +425,7 @@ public class JDBCProject {
 
                                 System.out.println( "What is the name of the book you wish to add into the database?" );
                                 bookTitle = in.nextLine();
+                                                
                                 while ( bookTitle.length() > 40 ){
                                     System.out.println( "The name of the book you wish to add is too long" );
                                     System.out.println( "Please enter a different name for " + bookTitle );

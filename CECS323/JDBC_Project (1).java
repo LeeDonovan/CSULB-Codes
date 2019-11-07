@@ -1,8 +1,8 @@
-package jdbcproject;
+package jdbc_project;
 import java.sql.*;
 import java.util.Scanner;
-//Donovan and Frank
-public class JDBCProject {
+
+public class JDBC_Project {
 
     //  Database credentials
     static String USER = "";
@@ -103,8 +103,6 @@ public class JDBCProject {
                         int dataChoice;
                             String dataEntry;
                             String sql;
-                            String sql1;
-                            String sql2;
                             boolean display = false;
                             boolean displayAtt = false;
                             
@@ -127,15 +125,14 @@ public class JDBCProject {
                                 case 1:
                                     // Prompts the User 
                                     stmt = conn.createStatement();
-                                    System.out.println( "Please enter the Group Name you want to display:" );
+                                    System.out.println( "Please enter the Writing Group you want to display:" );
                                     dataEntry = in.nextLine();
                                     System.out.println();
                                     
                                     // Creates SQL statement and executes it.
-                                    sql = "SELECT * from writinggroups WHERE groupname =" + "\'" + dataEntry +"\'";    
-                                    sql1 = "SELECT * from books where groupname =" + "\'" + dataEntry +"\'";
-                                    ResultSet rs = stmt.executeQuery(sql);
-                                    
+                                    sql = "SELECT groupname, headwriter, yearformed, subject "
+                                            + "FROM writinggroups WHERE groupname =" + "\'" + dataEntry +"\'";                                   
+                ResultSet rs = stmt.executeQuery(sql);
                                     
                                     // Goes through the result of the SQL query
                                     while(rs.next()){
@@ -160,32 +157,6 @@ public class JDBCProject {
                                             dispNull( name ), dispNull( head ), dispNull( year ), dispNull( subject ) );
                                         }                                                   
                                     }
-                                    displayAtt = false;
-                                    rs = stmt.executeQuery(sql1);
-                                    System.out.println();
-                                    while(rs.next()){
-                                        // Retrieve data by their name
-                                        String name = rs.getString( "groupname" );
-                                        String bookTitle = rs.getString( "booktitle" );
-                                        String bookName = rs.getString( "publishername" );
-                                        String bookYear = rs.getString( "yearpublished" );
-                                        String bookPages = rs.getString( "numberpages" );
-                                    
-                                        // If the writng group name has matched the user's input it will display.
-                                        if ( name.equals( dataEntry ) ){
-                                            display = true;
-                                            
-
-                                            // Displays the header of the table once
-                                            if ( displayAtt == false ){
-                                                System.out.printf(bookDisplayFormat, "Group Name", "Book Title", 
-                                                        "Publisher Name", "Year Published", "Number of Pages" );
-                                                displayAtt = true;
-                                            }
-                                            System.out.printf(bookDisplayFormat,
-                                            dispNull( name ), dispNull( bookTitle ), dispNull( bookName ), dispNull( bookYear ), dispNull(bookPages));
-                                        }                                                   
-                                    }
                                     
                                     // If it did not display anything, it will display an error message
                                     if ( display == false )
@@ -206,7 +177,6 @@ public class JDBCProject {
                                     // Creates SQL statement and executes it
                                     sql= "SELECT publishername, publisheraddress, publisherphone, publisheremail FROM publishers"
                                             + " WHERE publishername =" + "\'" + dataEntry +"\'";
-                                    sql1 = "SELECT * from books where publishername =" + "\'" + dataEntry +"\'";
                                     rs = stmt.executeQuery(sql);
                                     
                                     // Goes through the result of the SQL query
@@ -236,34 +206,6 @@ public class JDBCProject {
                                                    
                                     }
                                     
-                                    displayAtt = false;
-                                    rs = stmt.executeQuery(sql1);
-                                    System.out.println();
-                                    
-                                    while(rs.next()){
-                                        // Retrieve data by their name
-                                        String name = rs.getString( "groupname" );
-                                        String bookTitle = rs.getString( "booktitle" );
-                                        String publisherName = rs.getString( "publishername" );
-                                        String bookYear = rs.getString( "yearpublished" );
-                                        String bookPages = rs.getString( "numberpages" );
-                                    
-                                        // If the writng group name has matched the user's input it will display.
-                                        if ( publisherName.equals( dataEntry ) ){
-                                            display = true;
-                                            
-
-                                            // Displays the header of the table once
-                                            if ( displayAtt == false ){
-                                                System.out.printf(bookDisplayFormat, "Group Name", "Book Title", 
-                                                        "Publisher Name", "Year Published", "Number of Pages" );
-                                                displayAtt = true;
-                                            }
-                                            System.out.printf(bookDisplayFormat,
-                                            dispNull( name ), dispNull( bookTitle ), dispNull( publisherName ), dispNull( bookYear ), dispNull(bookPages));
-                                        }                                                   
-                                    }
-                                    
                                     // Displays the error message if it did not display anything
                                     // from the database
                                     if ( display == false )
@@ -283,10 +225,6 @@ public class JDBCProject {
                                     // Creates SQL statement and executes it
                                     sql= "SELECT groupname, booktitle, publishername, yearpublished, numberpages"
                                     		+ " FROM books"+ " WHERE booktitle =" + "\'" + dataEntry +"\'";
-                                    sql1 = "SELECT publishers.publishername, publishers.publisheraddress,publishers.publisherphone, publishers.publisheremail FROM publishers, books"
-                                            + " WHERE publishers.publishername = books.publisherName AND books.booktitle=" + "\'" + dataEntry +"\'";
-                                    sql2 ="SELECT writinggroups.groupname, writinggroups.headwriter,writinggroups.yearformed,writinggroups.subject from writinggroups,books"
-                                            + " WHERE writinggroups.groupname = books.groupname and books.booktitle=" + "\'" + dataEntry +"\'";
                                     
                                     rs = stmt.executeQuery(sql);
                                     
@@ -319,63 +257,6 @@ public class JDBCProject {
                                                 dispNull(year), dispNull(pages) );
                                         }
                                                    
-                                    }
-                                    
-                                    //displayAtt = false;
-                                    rs = stmt.executeQuery(sql1);
-                                    System.out.println();
-                                    System.out.printf(publisherDisplayFormat, "Publisher Name", "Publisher Address", 
-                                                        "Publisher Phone", "Publisher Email" );
-                                    while(rs.next()){
-                                        // Retrieve data by their name
-                                        String name = rs.getString( "publishername" );
-                                        String bookTitle = rs.getString( "publisheraddress" );
-                                        String publisherName = rs.getString( "publisherphone" );
-                                        String bookYear = rs.getString( "publisheremail" );
-                           
-                                    
-                                        // If the writng group name has matched the user's input it will display.
-//                                        if ( publisherName.equals( dataEntry ) ){
-//                                            display = true;
-                                            
-
-                                            // Displays the header of the table once
-//                                            if ( displayAtt == false ){
-//                                                System.out.printf(bookDisplayFormat, "Group Name", "Book Title", 
-//                                                        "Publisher Name", "Year Published", "Number of Pages" );
-//                                                displayAtt = true;
-//                                            }
-                                        System.out.printf(publisherDisplayFormat,
-                                        dispNull( name ), dispNull( bookTitle ), dispNull( publisherName ), dispNull( bookYear ));
-                                        //}                                                   
-                                    }
-                                    
-                                    //displayAtt = false;
-                                    rs = stmt.executeQuery(sql2);
-                                    System.out.println();
-                                    System.out.printf(writingDisplayFormat, "Group Name", "Head Writer", 
-                                                        "Year Formed", "Subject" );
-                                    while(rs.next()){
-                                        // Retrieve data by their name
-                                        String name = rs.getString( "groupname" );
-                                        String head = rs.getString( "headwriter" );
-                                        String year = rs.getString( "yearformed" );
-                                        String subject = rs.getString( "subject" );
-                                    
-                                        // If the writng group name has matched the user's input it will display.
-//                                        if ( name.equals( dataEntry ) ){
-//                                            display = true;
-                                            
-
-                                            // Displays the header of the table once
-//                                            if ( displayAtt == false ){
-//                                                System.out.printf(writingDisplayFormat, "Group Name", "Head Writer", 
-//                                                        "Year Formed", "Subject" );
-//                                                displayAtt = true;
-//                                            }
-                                        System.out.printf(writingDisplayFormat,
-                                        dispNull( name ), dispNull( head ), dispNull( year ), dispNull( subject ) );
-                                        //}                                                   
                                     }
                                     
                                     // If it did not display anything, it will display an error message
@@ -425,6 +306,7 @@ public class JDBCProject {
 
                                 System.out.println( "What is the name of the book you wish to add into the database?" );
                                 bookTitle = in.nextLine();
+                                                
                                 while ( bookTitle.length() > 40 ){
                                     System.out.println( "The name of the book you wish to add is too long" );
                                     System.out.println( "Please enter a different name for " + bookTitle );
@@ -521,7 +403,7 @@ public class JDBCProject {
                                         String insertPubSQL = "INSERT INTO publishers (publishername, publisheraddress, "
                                                 + "publisherphone, publisheremail) " + "values ( '" + pubName + "', '" 
                                                 + pubAddress +"', '" + pubPhone +  "', '" + pubEmail + "')";
-                                        stmt.executeUpdate(insertPubSQL);
+                                        stmt.executeUpdate( insertPubSQL );
 
                                         System.out.println( "The publisher " + pubName + " has been added "
                                                 + "to the database." );
@@ -696,8 +578,6 @@ public class JDBCProject {
                                 String oldPublisher = in.nextLine();
                                 
                                 boolean publisherInTable = false;
-                                boolean newPublisherInTable = false;
-                                
                                 stmt = conn.createStatement();
                                 String publisherSQL = "SELECT publishername FROM publishers";
                     ResultSet rs = stmt.executeQuery( publisherSQL );
@@ -706,29 +586,13 @@ public class JDBCProject {
                                 while (rs.next()){
                                     //Retrieve by column name
                                     String publisher = rs.getString("publishername");
-
-                                    if(publisher.equals(oldPublisher) && !publisherInTable) {
+                                    
+                                    // Sets validBook to false if the user's book title
+                                    // matches with a book in the database.
+                                    if ( publisher.equals (oldPublisher) ){
                                         publisherInTable = true;
                                     }
-
-                                    if(publisher.equals(newPublisher) && !newPublisherInTable) {
-                                        newPublisherInTable = true;
-                                    }
-                                    
                                 }
-                                if(!newPublisherInTable) {
-                                        System.out.println("New publisher not found.");
-                                        System.out.println("Insert new publisher address:");
-                                        String newAddress = in.nextLine();
-                                        System.out.println("Insert new publisher phone number:");
-                                        String newPhone = in.nextLine();
-                                        System.out.println("Insert new publisher email:");
-                                        String newEmail = in.nextLine();
-                                        String newSql = "INSERT INTO publishers "+
-                                                "VALUES ('"+newPublisher+"', '"+newAddress+"', '"+newPhone+"', '"+newEmail+"')";
-                                        stmt.executeUpdate(newSql);
-                               
-                                    }
                                 
                                 if (publisherInTable == true){
                                     //Updates books from Books table to new publisher where necessary
