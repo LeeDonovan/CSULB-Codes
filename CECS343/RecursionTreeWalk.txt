@@ -1,0 +1,7 @@
+fac(n) = n*fac(n-1)
+one piece recursion 
+//Recursion Tree Walk
+void pt (Node RP)
+{
+    Basis Step: if()
+}
