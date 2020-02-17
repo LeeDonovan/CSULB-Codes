@@ -1,0 +1,18 @@
+Address Modes:
+1. For data manipulation: register direct
+2. For data transfer: base register 
+3. Branch type
+
+ADD 
+LD R1, M1
+LD R2, M2
+ADD R3, R2, R1
+ST M3, R3
+
+How do we design the Data Path?
+- We design for one instruction type at a time.
+
+R-type instructions:
+- Add, or, and, sub, pass B, nor
+D-type instructions:
+- 2 types: load and store
