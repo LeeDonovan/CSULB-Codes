@@ -1,0 +1,21 @@
+Principles To Use 
+Give action able advice
+
+Mean Stack
+MySQL
+Express
+Angular
+Node
+
+HTML to Node/Express
+<form //x bag to hold textbox & submit btm.
+    action = "/get_form_text"
+    method = "GET">
+    <input
+        type = "text"
+        id = "box_1"
+    name = "my_input_box_text"
+    required />
+
+Manifest-1.txt
+it will have all files 
