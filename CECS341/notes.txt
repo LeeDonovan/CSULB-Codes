@@ -14,5 +14,13 @@ How do we design the Data Path?
 
 R-type instructions:
 - Add, or, and, sub, pass B, nor
+- repeating operands from register
+- 32 registers, how many bits are we using? 5 bits 
 D-type instructions:
 - 2 types: load and store
+- dealing with memory
+- indirect 
+
+Register ID # has to be consistent. 
+Can only use one register # for one location
+Need for separate register files? No

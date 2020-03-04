@@ -1,0 +1,152 @@
+Most Important Thinngs in SW Dev
+- Rule 0: Get to work fast
+- Rule 1: Optimal, never pre-optimize
+- Rule 2: Hunt, stop bug hunts
+- Rule 3: EIO(aka expected input/output) TDD and BDD
+- Rule 4: Half Day, plan to do n amount of task in half a day.
+- Rule 5: Clean, make local code simpler, refactor
+
+Recursion Tree Walk
+- Print Tree
+    void PT(Node RP)
+    {
+        #1 Basis Step: if(null == RP) return;
+        #2 RL: PT(RP.LKID);
+        #3 RR: PT(RP.RKID);
+        #4 POP: print(RP.val);
+        #5 GLU: //None
+    }
+- Count Nodes
+    int cn(Node RP)
+    {
+        int LX, RK, PK;
+        #1 Basis Step: if(null == RP) return 0;
+        #2 RL: LX = cn(RP.LKID);
+        #3 RR: RK = cn(RP.RKID);
+        #4 POP: 1;
+        #5 GLU: return LX + RK + PX;
+    }
+- Count Giraffes
+    int ckn (Node RP, int Rkind)
+    {
+        int LX, RX, PX;
+        #1 Basis Step: if(null == RP) return 0;
+        #2 RL: LX = ckn(RP.LKID, Rkind);
+        #3 RR: RK = ckn(RP.RKID, Rkind);
+        #4 POP: PX = if (Rkind == RP.Rkind)
+                        {
+                            ?:0
+                        }
+        #5 GLU: return LX + RX + PX;
+    }
+- Uplink to Mom
+    void up(Node RP)
+        {
+            #1 Basis Step: if(null == RP) return;
+            #2 RL: up(RP.LKID);
+            #3 RR: up(RP.RKID);
+            #4 POP: if(RP.LKID ?= null)
+                        {
+                            RP.LKID.up = RP;
+                        }
+                    if(RP.RKID ?= null)
+                        {
+                            RP.RKID.up = RP;
+                        }
+            #5 GLU: //None;
+        }
+- Swap Kids
+    void swp(Node RP)
+        {
+            #1 Basis Step: if(null == RP) return;
+            #2 RL: swp(RP.LKID);
+            #3 RR: swp(RP.RKID);
+            #4 POP: TX = RP.LKID;
+                    RP.LKID = RP.Rkind;
+                    RP.RKID = TX;
+            #5 GLU: //None;
+        }
+- Find Val Node, quit early
+    Node fun(Node rp, int rv)
+        {
+            Node LX, RX, PX;
+            #1 Basis Step: if(null == RP) return null;
+            #2 RL: LX = fun(rp.LKID, rv);
+                    if(LX != null) return LX;
+            #3 POP: PX = null;
+                    if(rp.val != null)
+                    {
+                        PX = rp;
+                        return PX;
+                    }
+            #4 RR: RX = fun(rp.RKID, rv)
+                    return RX;
+            
+            #5 GLU: //None;
+        }
+
+Why is developing so long?
+- There are a lot of bugs, process info, more complex then other kinds of engineering.
+Why is dev cost so high?
+- Hard to predict/estimate efforts due to complexity
+- Unforeseen bugs
+- Labor intensive
+- Most effort in finding/fixing bugs
+- Biggest % of projects fail here
+Why are there bugs in completed programs?
+- # of pathway combinations too big to test
+Why do we maintain legacy systems?
+- Cash cows
+Why is it hard to measure progress?
+- WBS helps a lot
+- 90-90 rule---> 80% overrun
+- most metrics are poor and have hidden giant error bars 4.713 +- 10
+When is new-dev easy and low risk? COTS (Off the shelf)
+- use specialty-area framework or library
+- when you are not writing 80-90% of code because you are using existing tools
+- where p & m is reduced to simple 
+- biz logic
+(WBS = Work Breakdown Structure)
+1.1.2 App Dev kinds
+8 Areas
+1. System Programming
+    - ex: OS, network, realtime, async, distributed, parallel
+2. Application Programming
+    - focused biz areas 2 1/2 or Biz planning (operations research)
+3. Engr/Sci (w/ Accuracy)
+4. Embedded & Internet of Things
+5. SPL aka Software Product Line
+    - Large core (the framework) and small plugins(addons), variations(features)
+6. Web and Mobile
+    - Sub app area
+7. Artificial Intelligence
+    - data mining 
+8. Legacy 
+    - Screen scrapping
+
+CH 2 Dev Methodology
+Two High Level Phases
+- Pre-Contract
+- Post-Contract
+5 Phases of the Contracts
+    1. Pre-Contract
+        - work out project triangle
+    2. Post-Contract
+        - Customer = $
+        - common/requirement -> architecture
+        - planning 
+            - WBS aka Work Breakdown Structure
+            - Task dependency
+            - assign task to memebers
+    3. Modeling/architecture| Design/ Analysis
+    4. Build
+        - detailed design of medium size boxes
+    5. Deploy/Ship
+        - package
+        - install testing
+        - On site acceptance test
+        - manuals/user guides/ training materials
+
+2.2.2 Admin Task
+What's value-added?
+- 

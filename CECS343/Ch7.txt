@@ -18,4 +18,17 @@ HTML to Node/Express
     required />
 
 Manifest-1.txt
-it will have all files 
+it will have all files : C#P#L#
+
+Actions (PA Task)
+- Artifact ID
+    -rolling weighted sm, modulo m
+-Get user cmd + args
+- Give user response
+
+Copy heir/path file to top lvl repo folder
+-walk each source project tree touch each file.
+    - record path/heir for each file in tree + art.ID
+    - add record to manifest file. 
+- manage html -> node/express "infrastructure"
+-JS guru
