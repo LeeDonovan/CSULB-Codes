@@ -1,0 +1,34 @@
+Project Part 2 Checkout
+My_Repo/
+    |
+    |__Man1
+    |__Man2
+    |   .
+    |__ .
+    |__Man14
+    |
+    |__CIP2L3.JS---->Fred file in subfolder Crazy
+    |
+    |
+    |__C4P5L6.TXT
+
+What does checkout do?
+- C:/My_Repo/man4.rc(txt) ---> Source Folder
+- C:/Fred/Stuff/--->Target Folder
+Need CMD, folder, path to target 
++Create Repo
+CheckIn
+CheckOut 
+Label----> how does user specify a manifest file?| "Golden Pidgeon" Man4.rc(txt)
+    - Label "V2" man14.rc(txt)
+        - could rename, duplicate manifest files for easy label search 
+List CMD
+    - to see manifest file names and labels associated with it 
+
+Folder Tree Structure
+
+Document(Parts CRC) The Top-Level Architecture
+(3-8) Parts with each part 
+- "Title"
+- What it does, manages "in the way" of major data
+* Provide Bit '0 Example

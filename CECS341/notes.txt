@@ -24,3 +24,57 @@ D-type instructions:
 Register ID # has to be consistent. 
 Can only use one register # for one location
 Need for separate register files? No
+
+CH1
+Performance
+- IC x ACPI x CCT
+
+CH4
+- Simple Computer
+5 Stages of Simple Computer
+- Instruction Fetch
+- ID/RF
+- Execute
+- Data memory
+- Write Back or register write
+(Decoded in second stage)
+
+Types of Hazards (4B) and Pipelines 
+- Control Hazards
+- Data Hazards
+- Structure  Hazards 
+
+Branch Control- whether to go to
+Branch Target - Where to go to 
+
+HW1 on performance, HW 2 Control Signal (where to activate various things), HW3 Pipelining Fundamentals
+
+Intermediate Registers (buffers or Platform Registers)
+Passing on of the needed control signals to the right place
+Stages may take different times. Different instructions use different stages. Time taken by different instructions will be different
+Preliminary Observations
+
+Structure Hazards:
+- resource conflict, when you want some resources but there are limited
+
+Need for separate memories
+Solution: IM and DM
+- Cash memory for data and cash memory for instruction
+
+Need for Separate Register files
+- Solution: Half Cycle Technique
+
+Data Hazards: data is needed but is in the pipeline
+Solving Data Hazards by Stalling or Doin nothing is called 'Sending a Bubble'
+- Elegant solution: Forwarding, reorder Code(scheduling)
+'Load - Use' pair will need a stall cycle in spite of Forwarding.
+
+
+Control Hazards: before deciding to branch, you have already executed instructions in the pipleine. 
+- If branch is resolved at the end of 4th cycle then we need to flush three instructions 
+
+One possible alternative to reduce stalls is to Predict, if wrong then undo, restart, and execute right instructions
+
+Branch Prediction 2 types
+Static: Fixed? assumed or based or prior runs, compile time, no hardware
+Dynamic: change prediction based on present history, runtime, usees hardware 
